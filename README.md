@@ -1,6 +1,6 @@
 # eslint-config-tidal
 
-> ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for the TIDAL Code Style
+> ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for the TIDAL Code Style.
 
 
 ## Install
