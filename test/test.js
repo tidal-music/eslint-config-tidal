@@ -1,3 +1,5 @@
+ 'use strict';
+
 import test from 'ava';
 import isPlainObj from 'is-plain-obj';
 import tempWrite from 'temp-write';
@@ -17,7 +19,13 @@ test(t => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint(`'use strict'\nvar foo = function () {};\nfoo();\n`, conf);
-  t.is(errors[0].ruleId, 'semi');
-  t.is(errors[1].ruleId, 'space-before-function-paren');
+  const errors = runEslint(`'use strict'\nvar foo = function(){};\n\n\t\tfoo();\n\n\n\n`, conf);
+
+  t.is(errors[0].ruleId, 'strict');
+  t.is(errors[1].ruleId, 'semi');
+  t.is(errors[2].ruleId, 'space-before-function-paren');
+  t.is(errors[3].ruleId, 'space-before-blocks');
+  t.is(errors[4].ruleId, 'no-multiple-empty-lines');
+
+  t.is(errors.length, 5);
 });
