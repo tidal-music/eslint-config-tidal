@@ -7,3 +7,19 @@
 ```
 $ npm install --save-dev eslint eslint-config-tidal
 ```
+## Usage
+
+Put this in `.eslintrc`:
+
+```
+{
+  "extends": "tidal"
+}
+```
+
+You might also want to add these under "scripts" to your `package.json`:
+
+```
+"eslint": "eslint path/to/**/*.js",
+"eslint-auto-fix": "eslint path/to/**/*.js --fix"
+```
