@@ -1,0 +1,53 @@
+{
+  "name": "eslint-config-tidal",
+  "version": "1.0.0",
+  "description": "ESLint sharable config for TIDAL",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enjikaka/eslint-config-tidal.git"
+  },
+  "author": {
+    "name": "Jeremy Karlsson",
+    "email": "jeremy.karlsson@tidal.com",
+    "url": "listen.tidal.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/enjikaka/eslint-config-tidal/issues"
+  },
+  "homepage": "https://github.com/enjikaka/eslint-config-tidal#readme",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "tidal",
+    "tidal hifi",
+    "code",
+    "quality",
+    "style",
+    "lint",
+    "linter",
+    "validate",
+    "code style",
+    "hint"
+  ],
+  "devDependencies": {
+    "eslint": "^2.9.0",
+    "ava": "*",
+    "is-plain-obj": "^1.0.0",
+    "temp-write": "^2.0.1"
+  },
+  "dependencies": {
+    "eslint-config-xo": "^0.14.1"
+  },
+  "peerDependencies": {
+    "eslint": ">=2.9.0"
+  }
+}
