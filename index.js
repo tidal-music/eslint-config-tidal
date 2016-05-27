@@ -64,6 +64,7 @@ module.exports = {
     "new-cap": 1,
     "object-curly-spacing": [2, "always"],
     "quote-props": 0,
-    "no-console": 2
+    "no-console": 2,
+    "space-before-function-paren": [2, {"anonymous": "always", "named": "always"}]
   }
 };
