@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-tidal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ESLint sharable config for TIDAL",
   "main": "index.js",
   "repository": {

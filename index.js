@@ -10,10 +10,11 @@ module.exports = {
         "SwitchCase": 0
       }
     ],
-    "one-var": [
-      1,
-      "never"
-    ],
+    "one-var": [1, {
+      "var": "always", // Exactly one var declaration per function
+      "let": "always", // Exactly one let declaration per block
+      "const": "never" // Exactly one declarator per const declaration per block
+    }],
     "comma-style": [
       2,
       "first",
