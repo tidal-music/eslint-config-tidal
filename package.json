@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enjikaka/eslint-config-tidal.git"
+    "url": "git+https://github.com/tidal-engineering/eslint-config-tidal.git"
   },
   "author": {
     "name": "Jeremy Karlsson",
