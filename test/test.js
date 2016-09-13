@@ -6,26 +6,60 @@ import tempWrite from 'temp-write';
 import eslint from 'eslint';
 import conf from '../';
 
-function runEslint(str, conf) {
+function runEslint(file, conf) {
   const linter = new eslint.CLIEngine({
     useEslintrc: false,
     configFile: tempWrite.sync(JSON.stringify(conf))
   });
 
-  return linter.executeOnText(str).results[0].messages;
+  return linter.executeOnFiles([file]).results[0].messages;
 }
+
+function getUniqueValues (array) {
+  var u = {}
+    , a = [];
+
+  for (var i = 0, l = array.length; i < l; ++i) {
+    if (u.hasOwnProperty(array[i])) {
+      continue;
+    }
+
+    a.push(array[i]);
+    u[array[i]] = 1;
+  }
+
+  return a;
+};
 
 test(t => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint(`'use strict'\nvar foo = function(){};\n\n\t\tfoo();\n\n\n\n`, conf);
+  const errors = runEslint('../ugly-javascript.js', conf);
+  const errorsAsRuleIds = getUniqueValues(errors.map(item => item.ruleId));
+  const expectedErrors = [
+    'strict',
+    'semi',
+    'space-before-function-paren',
+    'space-before-blocks',
+    'comma-style',
+    'indent',
+    'no-unused-vars',
+    'quotes',
+    'no-multiple-empty-lines',
+    'no-console'
+  ];
 
-  t.is(errors[0].ruleId, 'strict');
-  t.is(errors[1].ruleId, 'semi');
-  t.is(errors[2].ruleId, 'space-before-function-paren');
-  t.is(errors[3].ruleId, 'space-before-blocks');
-  t.is(errors[4].ruleId, 'no-multiple-empty-lines');
+  const expectedErrorsFound = errorsAsRuleIds.filter(error => expectedErrors.indexOf(error) !== -1);
 
-  t.is(errors.length, 5);
+  t.is(expectedErrorsFound.length, expectedErrors.length);
+});
+
+test(t => {
+  t.true(isPlainObj(conf));
+  t.true(isPlainObj(conf.rules));
+
+  const errors = runEslint('../nice-javascript.js', conf);
+
+  t.is(errors.length, 0);
 });
