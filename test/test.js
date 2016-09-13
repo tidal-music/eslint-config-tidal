@@ -1,4 +1,4 @@
- 'use strict';
+'use strict';
 
 import test from 'ava';
 import isPlainObj from 'is-plain-obj';

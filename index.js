@@ -15,7 +15,6 @@ module.exports = {
       "let": "always", // Exactly one let declaration per block
       "const": "never" // Exactly one declarator per const declaration per block
     }],
-    "vars-on-top": 1,
     "comma-style": [
       2,
       "first",
@@ -59,14 +58,14 @@ module.exports = {
       "always"
     ],
     "strict": 2,
+    "object-curly-spacing": [2, "always"],
     "newline-after-var": 1,
     "newline-before-return": 1,
-    "no-warning-comments": 0,
-    "no-negated-condition" : 0,
-    "new-cap": 1,
-    "object-curly-spacing": [2, "always"],
+    "no-warning-comments": 1,
+    "no-console": 1,
+    "vars-on-top": 1,
+    "space-before-function-paren": [2, {"anonymous": "always", "named": "always"}],
     "quote-props": 0,
-    "no-console": 2,
-    "space-before-function-paren": [2, {"anonymous": "always", "named": "always"}]
+    "no-negated-condition" : 0
   }
 };
