@@ -65,6 +65,7 @@ module.exports = {
     "no-console": 1,
     "vars-on-top": 1,
     "no-mixed-operators": 1,
+    "no-prototype-builtins": 1,
     "space-before-function-paren": [2, {"anonymous": "always", "named": "always"}],
     "quote-props": 0,
     "no-negated-condition" : 0,
