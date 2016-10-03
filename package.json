@@ -39,13 +39,13 @@
     "hint"
   ],
   "devDependencies": {
-    "eslint": "^3.5.0",
+    "eslint": "*",
     "ava": "*",
     "is-plain-obj": "^1.0.0",
     "temp-write": "^2.0.1"
   },
   "dependencies": {
-    "eslint-config-xo": "^0.15.4"
+    "eslint-config-xo": "^0.16.0"
   },
   "peerDependencies": {
     "eslint": ">=3.5.0"
