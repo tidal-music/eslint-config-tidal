@@ -13,6 +13,3 @@ huh = 12;
 
 
 console.log('I log stuff (:');
-
-
-

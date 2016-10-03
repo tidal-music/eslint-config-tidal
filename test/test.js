@@ -4,7 +4,8 @@ import test from 'ava';
 import isPlainObj from 'is-plain-obj';
 import tempWrite from 'temp-write';
 import eslint from 'eslint';
-import conf from '../';
+import es5conf from '../';
+import es6conf from '../esnext';
 
 function runEslint(file, conf) {
   const linter = new eslint.CLIEngine({
@@ -32,6 +33,8 @@ function getUniqueValues (array) {
 };
 
 test(t => {
+  const conf = es5conf;
+
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
@@ -56,10 +59,46 @@ test(t => {
 });
 
 test(t => {
+  const conf = es6conf;
+
+  t.true(isPlainObj(conf));
+  t.true(isPlainObj(conf.rules));
+
+  const errors = runEslint('../ugly-es6.js', conf);
+  const errorsAsRuleIds = getUniqueValues(errors.map(item => item.ruleId));
+  const expectedErrors = [
+    'strict',
+    'semi',
+    'no-unused-vars',
+    'space-before-blocks',
+    'space-before-function-paren'
+  ];
+
+  const expectedErrorsFound = errorsAsRuleIds.filter(error => expectedErrors.indexOf(error) !== -1);
+
+  t.is(expectedErrorsFound.length, expectedErrors.length);
+});
+
+test(t => {
+  const conf = es5conf;
+
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
   const errors = runEslint('../nice-javascript.js', conf);
+
+  t.is(errors.length, 0);
+});
+
+test(t => {
+  const conf = es6conf;
+
+  t.true(isPlainObj(conf));
+  t.true(isPlainObj(conf.rules));
+
+  const errors = runEslint('../nice-es6.js', conf);
+
+  console.log(errors);
 
   t.is(errors.length, 0);
 });
