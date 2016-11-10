@@ -32,7 +32,7 @@ module.exports = {
     experimentalObjectRestSpread: true
   },
   parserOptions: {
-    ecmaVersion: 6,
+    ecmaVersion: 2017,
     ecmaFeatures: {
       jsx: false,
       experimentalObjectRestSpread: true

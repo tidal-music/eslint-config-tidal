@@ -12,7 +12,7 @@ module.exports = {
     ],
     'one-var': [2, {
       'var': 'always', // Exactly one var declaration per function
-      'let': 'always', // Exactly one let declaration per block
+      'let': 'never', // Exactly one let declaration per block
       'const': 'never' // Exactly one declarator per const declaration per block
     }],
     'comma-style': [
@@ -58,15 +58,18 @@ module.exports = {
       'always'
     ],
     'strict': 2,
+    'vars-on-top': 2,
     'object-curly-spacing': [2, 'always'],
+    'space-before-function-paren': [2, {
+      'anonymous': 'always',
+      'named': 'always'
+    }],
     'newline-after-var': 1,
     'newline-before-return': 1,
     'no-warning-comments': 1,
     'no-console': 1,
-    'vars-on-top': 1,
     'no-mixed-operators': 1,
     'no-prototype-builtins': 1,
-    'space-before-function-paren': [2, {'anonymous': 'always', 'named': 'always'}],
     'quote-props': 0,
     'no-negated-condition' : 0,
     'new-cap': 0
