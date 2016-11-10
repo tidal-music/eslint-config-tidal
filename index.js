@@ -11,9 +11,9 @@ module.exports = {
       }
     ],
     'one-var': [2, {
-      'var': 'always', // Exactly one var declaration per function
-      'let': 'never', // Exactly one let declaration per block
-      'const': 'never' // Exactly one declarator per const declaration per block
+      'var': 'always', // requires one var declaration per function
+      'let': 'never', // requires multiple let declarations per block
+      'const': 'never' // requires multiple const declarations per block
     }],
     'comma-style': [
       2,
