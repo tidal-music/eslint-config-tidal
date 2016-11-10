@@ -2,7 +2,10 @@
   "name": "eslint-config-tidal",
   "version": "1.0.8",
   "description": "ESLint sharable config for TIDAL",
-  "main": "index.js",
+  "files": [
+    "index.js",
+    "esnext.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tidal-engineering/eslint-config-tidal.git"
