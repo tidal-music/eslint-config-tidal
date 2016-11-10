@@ -1,10 +1,9 @@
 {
   "name": "eslint-config-tidal",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "ESLint sharable config for TIDAL",
   "files": [
-    "index.js",
-    "esnext.js"
+    "index.js"
   ],
   "repository": {
     "type": "git",
@@ -26,9 +25,6 @@
     "url": "https://github.com/enjikaka/eslint-config-tidal/issues"
   },
   "homepage": "https://github.com/enjikaka/eslint-config-tidal#readme",
-  "files": [
-    "index.js"
-  ],
   "keywords": [
     "tidal",
     "tidal hifi",
