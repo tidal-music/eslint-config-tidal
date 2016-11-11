@@ -72,6 +72,7 @@ module.exports = {
     'no-prototype-builtins': 1,
     'quote-props': 0,
     'no-negated-condition' : 0,
+    'func-names' : 0,
     'new-cap': 0
   }
 };
