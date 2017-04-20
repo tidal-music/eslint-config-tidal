@@ -1,4 +1,4 @@
-# eslint-config-tidal 
+# eslint-config-tidal
 
 [![Build Status](https://travis-ci.org/tidal-engineering/eslint-config-tidal.svg?branch=master)](https://travis-ci.org/tidal-engineering/eslint-config-tidal)
 [![Codacy grade](https://img.shields.io/codacy/grade/e20818172062471ebc0c1b69e5ea0887.svg "Codacy grade")](https://www.codacy.com/app/karlsson/eslint-config-tidal)
@@ -21,6 +21,21 @@ Put this in `.eslintrc`:
 ```
 {
   "extends": "tidal"
+}
+```
+
+If you are using ES6, do this instead;
+
+```
+{
+  "extends": "tidal/esnext"
+}
+```
+
+If browser only;
+```
+{
+  "extends": "tidal/browser"
 }
 ```
 
