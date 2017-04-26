@@ -1,19 +1,25 @@
 'use strict';
 
 import test from 'ava';
+import fs from 'fs';
+import path from 'path';
 import isPlainObj from 'is-plain-obj';
 import tempWrite from 'temp-write';
 import eslint from 'eslint';
 import es5conf from '../';
 import es6conf from '../esnext';
 
-function runEslint(file, conf) {
+function runEslint(str, conf) {
   const linter = new eslint.CLIEngine({
     useEslintrc: false,
     configFile: tempWrite.sync(JSON.stringify(conf))
   });
 
-  return linter.executeOnFiles([file]).results[0].messages;
+  return linter.executeOnText(str).results[0].messages;
+}
+
+function getFileAsString (pathName) {
+  return fs.readFileSync(path.join(__dirname, pathName), 'utf-8');
 }
 
 function getUniqueValues (array) {
@@ -38,7 +44,7 @@ test(t => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint('../ugly-javascript.js', conf);
+  const errors = runEslint(getFileAsString('../ugly-javascript.js'), conf);
   const errorsAsRuleIds = getUniqueValues(errors.map(item => item.ruleId));
   const expectedErrors = [
     'strict',
@@ -64,7 +70,7 @@ test(t => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint('../ugly-es6.js', conf);
+  const errors = runEslint(getFileAsString('../ugly-es6.js'), conf);
   const errorsAsRuleIds = getUniqueValues(errors.map(item => item.ruleId));
   const expectedErrors = [
     'strict',
@@ -85,7 +91,7 @@ test(t => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint('../nice-javascript.js', conf);
+  const errors = runEslint(getFileAsString('../nice-javascript.js'), conf);
 
   t.is(errors.length, 0);
 });
@@ -96,7 +102,7 @@ test(t => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint('../nice-es6.js', conf);
+  const errors = runEslint(getFileAsString('../nice-es6.js'), conf);
 
   console.log(errors);
 
