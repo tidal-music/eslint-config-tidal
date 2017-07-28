@@ -8,6 +8,7 @@ module.exports = {
         'SwitchCase': 0
       }
     ],
+    'capitalized-comments': 0,
     'one-var': [2, {
       'var': 'always', // requires one var declaration per function
       'let': 'never', // requires multiple let declarations per block
