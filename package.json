@@ -17,7 +17,7 @@
     "url": "listen.tidal.com"
   },
   "engines": {
-    "node": ">=4.0"
+    "node": ">=6"
   },
   "scripts": {
     "test": "ava"
@@ -40,15 +40,15 @@
     "hint"
   ],
   "devDependencies": {
-    "eslint": "^4.3.0",
-    "ava": "^0.21.0",
+    "ava": "^0.25.0",
+    "eslint": "^5.7.0",
     "is-plain-obj": "^1.1.0",
     "temp-write": "^3.3.0"
   },
   "dependencies": {
-    "eslint-config-xo": "^0.18.2"
+    "eslint-config-xo": "^0.25.0"
   },
   "peerDependencies": {
-    "eslint": ">=4"
+    "eslint": ">=5.7.0"
   }
 }

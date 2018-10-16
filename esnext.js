@@ -12,10 +12,9 @@ module.exports = {
     'prefer-numeric-literals': 2,
   },
   parserOptions: {
-    ecmaVersion: 2017,
+    ecmaVersion: 2018 ,
     ecmaFeatures: {
       jsx: false,
-      experimentalObjectRestSpread: true,
       arrowFunctions: true,
       destructuring: true,
       classes: true,
@@ -30,8 +29,7 @@ module.exports = {
       forOf: true,
       generators: true,
       templateStrings: true,
-      superInFunctions: true,
-      experimentalObjectRestSpread: true
+      superInFunctions: true
     }
   }
 };
