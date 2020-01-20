@@ -9,13 +9,13 @@ import eslint from 'eslint';
 import es5conf from '../';
 import es6conf from '../esnext';
 
-function runEslint(str, conf) {
+function runEslint(file, conf) {
   const linter = new eslint.CLIEngine({
     useEslintrc: false,
     configFile: tempWrite.sync(JSON.stringify(conf))
   });
 
-  return linter.executeOnText(str).results[0].messages;
+  return linter.executeOnFiles([file]).results[0].messages;
 }
 
 function getFileAsString (pathName) {
@@ -38,13 +38,14 @@ function getUniqueValues (array) {
   return a;
 };
 
-test(t => {
+test('Fails on bad JS', t => {
   const conf = es5conf;
 
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint(getFileAsString('../ugly-javascript.js'), conf);
+  const errors = runEslint('ugly-javascript.js', conf);
+
   const errorsAsRuleIds = getUniqueValues(errors.map(item => item.ruleId));
   const expectedErrors = [
     'strict',
@@ -64,13 +65,13 @@ test(t => {
   t.is(expectedErrorsFound.length, expectedErrors.length);
 });
 
-test(t => {
+test('Fails on bad ES', t => {
   const conf = es6conf;
 
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint(getFileAsString('../ugly-es6.js'), conf);
+  const errors = runEslint('ugly-es6.js', conf);
   const errorsAsRuleIds = getUniqueValues(errors.map(item => item.ruleId));
   const expectedErrors = [
     'strict',
@@ -85,24 +86,24 @@ test(t => {
   t.is(expectedErrorsFound.length, expectedErrors.length);
 });
 
-test(t => {
+test('Success on good JS', t => {
   const conf = es5conf;
 
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint(getFileAsString('../nice-javascript.js'), conf);
+  const errors = runEslint('nice-javascript.js', conf);
 
   t.is(errors.length, 0);
 });
 
-test(t => {
+test('Success on good ES', t => {
   const conf = es6conf;
 
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint(getFileAsString('../nice-es6.js'), conf);
+  const errors = runEslint('nice-es6.js', conf);
 
   console.log(errors);
 

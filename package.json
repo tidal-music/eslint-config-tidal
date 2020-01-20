@@ -22,6 +22,11 @@
   "scripts": {
     "test": "ava"
   },
+  "ava": {
+    "require": [
+      "esm"
+    ]
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/enjikaka/eslint-config-tidal/issues"
@@ -40,15 +45,16 @@
     "hint"
   ],
   "devDependencies": {
-    "ava": "^0.25.0",
-    "eslint": "^5.7.0",
-    "is-plain-obj": "^1.1.0",
-    "temp-write": "^3.3.0"
+    "ava": "2.3.0",
+    "eslint": "6.7.0",
+    "esm": "^3.2.25",
+    "is-plain-obj": "^2.0.0",
+    "temp-write": "^4.0.0"
   },
   "dependencies": {
-    "eslint-config-xo": "^0.25.0"
+    "eslint-config-xo": "^0.27.2"
   },
   "peerDependencies": {
-    "eslint": ">=5.7.0"
+    "eslint": ">=6.8.0"
   }
 }
