@@ -1,5 +1,5 @@
 module.exports = {
-  extends: 'xo',
+  extends: ['xo'],
   rules: {
     'indent': [
       2,

@@ -14,18 +14,13 @@
   "author": {
     "name": "Jeremy Karlsson",
     "email": "jeremy.karlsson@tidal.com",
-    "url": "listen.tidal.com"
+    "url": "https://listen.tidal.com"
   },
   "engines": {
-    "node": ">=13"
+    "node": ">=8"
   },
   "scripts": {
     "test": "ava"
-  },
-  "ava": {
-    "require": [
-      "esm"
-    ]
   },
   "license": "MIT",
   "bugs": {
@@ -45,8 +40,8 @@
     "hint"
   ],
   "devDependencies": {
-    "ava": "2.3.0",
-    "eslint": "6.7.0",
+    "ava": "^3.0.0",
+    "eslint": "^6.8.0",
     "esm": "^3.2.25",
     "is-plain-obj": "^2.0.0",
     "temp-write": "^4.0.0"

@@ -12,7 +12,7 @@ module.exports = {
     'prefer-numeric-literals': 2,
   },
   parserOptions: {
-    ecmaVersion: 2018 ,
+    ecmaVersion: 2019,
     ecmaFeatures: {
       jsx: false,
       arrowFunctions: true,
