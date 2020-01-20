@@ -1,15 +1,11 @@
-'use strict';
-
 import test from 'ava';
-import fs from 'fs';
-import path from 'path';
 import isPlainObj from 'is-plain-obj';
 import tempWrite from 'temp-write';
 import eslint from 'eslint';
 import es5conf from '../';
 import es6conf from '../esnext';
 
-function runEslint(file, conf) {
+function runEslint (file, conf) {
   const linter = new eslint.CLIEngine({
     useEslintrc: false,
     configFile: tempWrite.sync(JSON.stringify(conf))
@@ -18,25 +14,7 @@ function runEslint(file, conf) {
   return linter.executeOnFiles([file]).results[0].messages;
 }
 
-function getFileAsString (pathName) {
-  return fs.readFileSync(path.join(__dirname, pathName), 'utf-8');
-}
-
-function getUniqueValues (array) {
-  var u = {}
-    , a = [];
-
-  for (var i = 0, l = array.length; i < l; ++i) {
-    if (u.hasOwnProperty(array[i])) {
-      continue;
-    }
-
-    a.push(array[i]);
-    u[array[i]] = 1;
-  }
-
-  return a;
-};
+const getUniqueValues = arr => ([...new Set(arr)]);
 
 test('Fails on bad JS', t => {
   const conf = es5conf;
@@ -45,8 +23,8 @@ test('Fails on bad JS', t => {
   t.true(isPlainObj(conf.rules));
 
   const errors = runEslint('ugly-javascript.js', conf);
-
   const errorsAsRuleIds = getUniqueValues(errors.map(item => item.ruleId));
+
   const expectedErrors = [
     'strict',
     'semi',
@@ -104,8 +82,6 @@ test('Success on good ES', t => {
   t.true(isPlainObj(conf.rules));
 
   const errors = runEslint('nice-es6.js', conf);
-
-  console.log(errors);
 
   t.is(errors.length, 0);
 });

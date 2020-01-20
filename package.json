@@ -20,7 +20,13 @@
     "node": ">=8"
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "lint": "eslint test/*.js"
+  },
+  "ava": {
+    "require": [
+      "esm"
+    ]
   },
   "license": "MIT",
   "bugs": {

@@ -1,14 +1,14 @@
-const path = require('path');
-
 module.exports = {
-  extends: path.join(__dirname, 'index.js'),
+  extends: [
+    './index.js',
+  ].map(require.resolve),
   rules: {
     'no-var': 2,
     'object-shorthand': [2, 'always'],
     'prefer-arrow-callback': 2,
     'prefer-const': [2, {
-			destructuring: 'all'
-		}],
+      destructuring: 'all'
+    }],
     'prefer-numeric-literals': 2,
   },
   parserOptions: {
