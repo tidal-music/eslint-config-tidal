@@ -17,7 +17,7 @@
     "url": "listen.tidal.com"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=13"
   },
   "scripts": {
     "test": "ava"
