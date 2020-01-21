@@ -1,6 +1,6 @@
 # eslint-config-tidal
 
-[![Build Status](https://travis-ci.org/tidal-engineering/eslint-config-tidal.svg?branch=master)](https://travis-ci.org/tidal-engineering/eslint-config-tidal)
+[![Test result](https://github.com/tidal-engineering/eslint-config-tidal/workflows/test/badge.svg "Test result")](https://github.com/tidal-engineering/eslint-config-tidal/actions)
 [![Codacy grade](https://img.shields.io/codacy/grade/e20818172062471ebc0c1b69e5ea0887.svg "Codacy grade")](https://www.codacy.com/app/karlsson/eslint-config-tidal)
 [![NPM downloads](https://img.shields.io/npm/dm/eslint-config-tidal.svg "NPM downloads")](https://www.npmjs.com/package/eslint-config-tidal)
 [![NPM version](https://img.shields.io/npm/v/eslint-config-tidal.svg "NPM version")](https://www.npmjs.com/package/eslint-config-tidal)
