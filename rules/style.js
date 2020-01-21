@@ -1,3 +1,5 @@
+// Adapted from https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules
+// This will mostly be ignored when using Prettier
 module.exports = {
   rules: {
     // enforce line breaks after opening and before closing array brackets
