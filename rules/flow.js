@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['plugin:flowtype/recommended', 'prettier/flowtype'],
+  extends: ['plugin:flowtype/recommended'],
   plugins: ['flowtype'],
   rules: {
     'flowtype/define-flow-type': 'warn',
