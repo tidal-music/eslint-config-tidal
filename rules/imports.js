@@ -1,3 +1,4 @@
+// Adapted from https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules
 module.exports = {
   env: {
     es6: true,

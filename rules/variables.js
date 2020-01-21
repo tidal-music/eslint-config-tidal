@@ -1,3 +1,5 @@
+// Adapted from https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules
+
 const confusingBrowserGlobals = require('confusing-browser-globals');
 
 module.exports = {

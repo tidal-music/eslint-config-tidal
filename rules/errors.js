@@ -1,3 +1,4 @@
+// Adapted from https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base/rules
 module.exports = {
   rules: {
     // Enforce “for” loop update clause moving the counter in the right direction
