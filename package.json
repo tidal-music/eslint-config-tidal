@@ -41,7 +41,7 @@
     "es2018"
   ],
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.17.0",
