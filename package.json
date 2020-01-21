@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"bye\"",
-    "lint": "eslint --report-unused-disable-directives .",
-    "prettier": "prettier --check \"**/*.{ts,js,json}\"",
-    "prettier:fix": "yarn prettier --write"
+    "lint": "eslint --report-unused-disable-directives ."
   },
   "repository": {
     "type": "git",
