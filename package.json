@@ -2,9 +2,13 @@
   "name": "eslint-config-tidal",
   "version": "2.0.0",
   "description": "ESLint sharable config for TIDAL",
-  "files": [
-    "index.js"
-  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"bye\"",
+    "lint": "eslint --report-unused-disable-directives .",
+    "prettier": "prettier --check \"**/*.{ts,js,json}\"",
+    "prettier:fix": "yarn prettier --write"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tidal-engineering/eslint-config-tidal.git"
@@ -16,29 +20,39 @@
       "url": "https://koenromers.com"
     }
   ],
-  "scripts": {
-    "test": "echo \"bye\""
-  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tidal-engineering/eslint-config-tidal/issues"
   },
   "homepage": "https://github.com/tidal-engineering/eslint-config-tidal#readme",
   "keywords": [
-    "code style",
-    "code",
     "eslint",
+    "eslintconfig",
     "hint",
     "lint",
     "linter",
-    "quality",
     "style",
     "tidal hifi",
     "tidal",
-    "validate"
+    "validate",
+    "javascript",
+    "styleguide",
+    "es2015",
+    "es2016",
+    "es2017",
+    "es2018"
   ],
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "confusing-browser-globals": "^1.0.9"
+  },
+  "engines": {
+    "node": ">= 6"
+  }
 }

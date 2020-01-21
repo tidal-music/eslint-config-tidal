@@ -1,0 +1,10 @@
+# Editor config
+.vscode
+
+# Downloaded node packages
+node_modules
+yarn-cache
+
+# package lock is different on each platform
+# we cannot track it
+package-lock.json
