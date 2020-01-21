@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    'eslint-config-xo',
+    'eslint-config-xo'
   ].map(require.resolve),
   rules: {
     'indent': [

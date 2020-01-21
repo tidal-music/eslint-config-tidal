@@ -22,7 +22,7 @@ test('Fails on bad JS', t => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint('ugly-javascript.js', conf);
+  const errors = runEslint('test/cases/ugly-javascript.js', conf);
   const errorsAsRuleIds = getUniqueValues(errors.map(item => item.ruleId));
 
   const expectedErrors = [
@@ -49,7 +49,7 @@ test('Fails on bad ES', t => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint('ugly-es6.js', conf);
+  const errors = runEslint('test/cases/ugly-es6.js', conf);
   const errorsAsRuleIds = getUniqueValues(errors.map(item => item.ruleId));
   const expectedErrors = [
     'strict',
@@ -70,7 +70,7 @@ test('Success on good JS', t => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint('nice-javascript.js', conf);
+  const errors = runEslint('test/cases/nice-javascript.js', conf);
 
   t.is(errors.length, 0);
 });
@@ -81,7 +81,7 @@ test('Success on good ES', t => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint('nice-es6.js', conf);
+  const errors = runEslint('test/cases/nice-es6.js', conf);
 
   t.is(errors.length, 0);
 });

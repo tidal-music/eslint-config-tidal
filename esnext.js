@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    './index.js',
+    './index.js'
   ].map(require.resolve),
   rules: {
     'no-var': 2,
@@ -9,7 +9,7 @@ module.exports = {
     'prefer-const': [2, {
       destructuring: 'all'
     }],
-    'prefer-numeric-literals': 2,
+    'prefer-numeric-literals': 2
   },
   parserOptions: {
     ecmaVersion: 2019,

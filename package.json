@@ -20,8 +20,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "test": "ava",
-    "lint": "eslint test/*.js"
+    "test": "ava test/test.js",
+    "lint": "npx eslint *.js test/test.js"
   },
   "ava": {
     "require": [
