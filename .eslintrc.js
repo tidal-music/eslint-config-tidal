@@ -1,4 +1,4 @@
 module.exports = {
-  extends: ['./index.js', './prettier.js'],
-  rules: {},
+  extends: ['./index.js'],
+  rules: {}
 };
