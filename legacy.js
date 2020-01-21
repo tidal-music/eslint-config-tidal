@@ -3,7 +3,6 @@ module.exports = {
     './rules/best-practices',
     './rules/errors',
     './rules/node',
-    './rules/prettier',
     './rules/variables',
   ].map(require.resolve),
   env: {
