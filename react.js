@@ -1,6 +1,9 @@
 module.exports = {
-  extends: ['./rules/react', './rules/react-hooks', './rules/react-a11y'].map(
-    require.resolve,
-  ),
+  extends: [
+    './rules/jest',
+    './rules/react',
+    './rules/react-a11y',
+    './rules/react-hooks',
+  ].map(require.resolve),
   rules: {},
 };
