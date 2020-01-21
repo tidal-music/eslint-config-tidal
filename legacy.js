@@ -4,7 +4,6 @@ module.exports = {
     './rules/errors',
     './rules/node',
     './rules/prettier',
-    './rules/style',
     './rules/variables',
   ].map(require.resolve),
   env: {
