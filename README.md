@@ -23,24 +23,24 @@ Our default export contains all of our base ESLint rules. It requires `eslint` a
 npm install --save-dev eslint-config-tidal eslint-plugin-import
 ```
 
-2. Add `"extends": "tidal"` to your `.eslintrc`
+2. Add `"extends": "tidal"` to your `.eslintrc`.
 
-### eslint-config/tidal/prettier
+### eslint-config-tidal/prettier
 
 This entry point enables the linting rules for Prettier. To use, add `"extends": ["tidal", "tidal/prettier"]` to your `.eslintrc`.
 Additional required packages: `eslint-config-prettier`.
 
-### eslint-config/tidal/flow
+### eslint-config-tidal/flow
 
 This entry point enables the linting rules for Flow. To use, add `"extends": ["tidal", "tidal/flow"]` to your `.eslintrc`.
 Additional required packages: `eslint-plugin-flowtype`.
 
-### eslint-config/tidal/react
+### eslint-config-tidal/react
 
 This entry point enables the linting rules for React (requires v16.8+). To use, add `"extends": ["tidal", "tidal/react"]` to your `.eslintrc`.
 Additional required packages: `eslint-plugin-react`, `eslint-plugin-react-hooks`, `eslint-plugin-jest`, `eslint-plugin-jsx-a11y`.
 
-### eslint-config/tidal/typescript
+### eslint-config-tidal/typescript
 
 This entry point enables the linting rules for Typescript. To use, add `"extends": ["tidal", "tidal/react"]` to your `.eslintrc`.
 Additional required packages: `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`.
