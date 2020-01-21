@@ -11,7 +11,7 @@
 
 ## Usage
 
-We export six ESLint configurations for your usage.
+We export five ESLint configurations for your usage.
 
 ### eslint-config-tidal
 
@@ -24,11 +24,6 @@ npm install --save-dev eslint-config-tidal eslint-plugin-import
 ```
 
 2. Add `"extends": "tidal"` to your `.eslintrc`.
-
-### eslint-config-tidal/prettier
-
-This entry point enables the linting rules for Prettier. To use, add `"extends": ["tidal", "tidal/prettier"]` to your `.eslintrc`.
-Additional required packages: `eslint-config-prettier`.
 
 ### eslint-config-tidal/flow
 
