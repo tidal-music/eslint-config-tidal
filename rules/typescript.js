@@ -10,7 +10,10 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.json'],
       },
     },
-    'import/extensions': 'off',
+    'import/extensions': ['error', 'ignorePackages', {
+      tsx: 'never',
+      ts: 'never',
+    }],
   },
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
