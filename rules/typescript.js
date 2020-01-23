@@ -1,8 +1,9 @@
 module.exports = {
   extends: [
-    'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    // This should work, but somehow it only works when defined in the project
+    // 'plugin:import/typescript',
   ],
   plugins: ['@typescript-eslint'],
   parser: '@typescript-eslint/parser',
