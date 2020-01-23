@@ -15,6 +15,8 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
+    'import/core-modules': [],
+    'import/ignore': ['node_modules', '\\.(scss|css|svg|json)$'],
   },
 
   rules: {
