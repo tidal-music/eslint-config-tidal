@@ -4,7 +4,29 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
   plugins: ['@typescript-eslint'],
+  parser: require.resolve('@typescript-eslint/parser'),
+  parserOptions: {
+    warnOnUnsupportedTypeScriptVersion: false,
+    sourceType: 'module',
+    jsx: true,
+    project: 'tsconfig.json',
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.ts', '.tsx'],
+      },
+    },
+    'import/extensions': ['.ts', '.tsx'],
+    'import/parsers': {
+      '@typescript-eslint/parser': [
+        '.ts',
+        '.tsx',
+      ],
+    },
+  },
   rules: {
+    'import/extensions': ['error', 'never'],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/interface-name-prefix': [
       'error',

@@ -12,15 +12,10 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        extensions: ['.js', '.jsx'],
       },
     },
-    'import/extensions': [
-      '.js',
-      '.jsx',
-      '.ts',
-      '.tsx',
-    ],
+    'import/extensions': ['.js', '.jsx'],
     'import/core-modules': [],
     'import/ignore': ['node_modules', '\\.(scss|css|svg|json)$'],
   },
@@ -135,7 +130,7 @@ module.exports = {
 
     // Ensure consistent use of file extension within the import path
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
-    'import/extensions': ['error', 'always', { ignorePackages: true, ts: 'never', tsx: 'never' }],
+    'import/extensions': ['error', 'always', { ignorePackages: true }],
 
     // ensure absolute imports are above relative imports and that unassigned imports are ignored
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
