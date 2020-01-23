@@ -15,9 +15,6 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
-    'import/extensions': ['error', 'always', { ignorePackages: true, ts: 'never', tsx: 'never' }],
-    'import/core-modules': [],
-    'import/ignore': ['node_modules', '\\.(scss|css|svg|json)$'],
   },
 
   rules: {
@@ -130,7 +127,7 @@ module.exports = {
 
     // Ensure consistent use of file extension within the import path
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
-    'import/extensions': ['error', 'always', { ignorePackages: true }],
+    'import/extensions': ['error', 'always', { ignorePackages: true, ts: 'never', tsx: 'never' }],
 
     // ensure absolute imports are above relative imports and that unassigned imports are ignored
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
