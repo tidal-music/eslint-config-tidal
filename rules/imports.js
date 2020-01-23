@@ -12,10 +12,10 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.json'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
-    'import/extensions': ['error', 'never', { ignorePackages: true, js: 'always', jsx: 'always' }],
+    'import/extensions': ['error', 'always', { ignorePackages: true, ts: 'never', tsx: 'never' }],
     'import/core-modules': [],
     'import/ignore': ['node_modules', '\\.(scss|css|svg|json)$'],
   },
