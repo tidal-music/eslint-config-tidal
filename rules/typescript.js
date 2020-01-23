@@ -4,7 +4,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
   plugins: ['@typescript-eslint'],
-  parser: require.resolve('@typescript-eslint/parser'),
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     warnOnUnsupportedTypeScriptVersion: false,
     sourceType: 'module',
@@ -12,12 +12,6 @@ module.exports = {
     project: 'tsconfig.json',
   },
   settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.ts', '.tsx'],
-      },
-    },
-    'import/extensions': ['.ts', '.tsx'],
     'import/parsers': {
       '@typescript-eslint/parser': [
         '.ts',
