@@ -11,16 +11,7 @@ module.exports = {
     jsx: true,
     project: 'tsconfig.json',
   },
-  settings: {
-    'import/parsers': {
-      '@typescript-eslint/parser': [
-        '.ts',
-        '.tsx',
-      ],
-    },
-  },
   rules: {
-    'import/extensions': ['error', 'never'],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/interface-name-prefix': [
       'error',

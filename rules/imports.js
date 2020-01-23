@@ -8,16 +8,22 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['import'],
-
   settings: {
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
+      typescript: {},
     },
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     'import/core-modules': [],
     'import/ignore': ['node_modules', '\\.(scss|css|svg|json)$'],
+    'import/parsers': {
+      '@typescript-eslint/parser': [
+        '.ts',
+        '.tsx',
+      ],
+    },
   },
 
   rules: {
