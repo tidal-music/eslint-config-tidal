@@ -37,7 +37,7 @@ Additional required packages: `eslint-plugin-react`, `eslint-plugin-react-hooks`
 
 ### eslint-config-tidal/typescript
 
-This entry point enables the linting rules for Typescript. To use, add `"extends": ["tidal", "tidal/react"]` to your `.eslintrc`.
+This entry point enables the linting rules for Typescript. To use, add `"extends": ["tidal", "tidal/typescript", "plugin:import/typescript"]` to your `.eslintrc`.
 Additional required packages: `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`.
 
 ### eslint-config-tidal/legacy
