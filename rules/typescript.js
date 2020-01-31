@@ -69,5 +69,7 @@ module.exports = {
     '@typescript-eslint/type-annotation-spacing': 'off',
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/unified-signatures': 'error',
+    // Typescript handles this, so safe to turn off
+    'no-undef': 'off',
   },
 };
