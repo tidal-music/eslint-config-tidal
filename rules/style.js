@@ -203,18 +203,6 @@ module.exports = {
       },
     ],
 
-    // enforce position of line comments
-    // https://eslint.org/docs/rules/line-comment-position
-    // TODO: enable?
-    'line-comment-position': [
-      'off',
-      {
-        position: 'above',
-        ignorePattern: '',
-        applyDefaultPatterns: true,
-      },
-    ],
-
     // disallow mixed 'LF' and 'CRLF' as linebreaks
     // https://eslint.org/docs/rules/linebreak-style
     'linebreak-style': ['error', 'unix'],

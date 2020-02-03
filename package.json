@@ -2,9 +2,15 @@
   "name": "eslint-config-tidal",
   "version": "2.0.0",
   "description": "ESLint sharable config for TIDAL",
-  "main": "index.js",
+  "files": [
+    "index.js",
+    "flow.js",
+    "typescript.js",
+    "react.js",
+    "legacy.js"
+  ],
   "scripts": {
-    "test": "echo \"bye\"",
+    "test": "ava test/test.js",
     "lint": "eslint --report-unused-disable-directives ."
   },
   "repository": {
@@ -46,13 +52,16 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.17.0",
     "@typescript-eslint/parser": "^2.17.0",
+    "ava": "^3.2.0",
     "eslint": "^6.8.0",
     "eslint-plugin-flowtype": "^4.6.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jest": "^23.6.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.0",
-    "eslint-plugin-react-hooks": "^2.3.0"
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "is-plain-obj": "^2.1.0",
+    "temp-write": "^4.0.0"
   },
   "dependencies": {
     "confusing-browser-globals": "^1.0.9"
