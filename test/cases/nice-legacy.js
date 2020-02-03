@@ -1,9 +1,8 @@
-/* eslint-env es6 */
+'use strict';
 
-const switchButtonTemplate = '';
-
-const SwitchButton = {
-  initialize (options) {
+var switchButtonTemplate = '';
+var SwitchButton = {
+  initialize: function (options) {
     this.options = options || {};
 
     this.checked = false;
@@ -17,10 +16,16 @@ const SwitchButton = {
     this.render();
   },
 
+  onSwitchButtonChange: function (event) {
+    this.clickHandler({
+      enabled: event.target.checked
+    });
+  },
+
   /**
    * Disable the use of this button.
    */
-  disable () {
+  disable: function () {
     this.$el.addClass('switch-button--disabled');
     this.$switch.attr('disabled', true);
   },
@@ -28,12 +33,12 @@ const SwitchButton = {
   /**
    * Enable the use of this button.
    */
-  enable () {
+  enable: function () {
     this.$el.removeClass('switch-button--disabled');
     this.$switch.attr('disabled', false);
   },
 
-  render () {
+  render: function () {
     this.$el.html(switchButtonTemplate);
     this.$switch = this.$('input');
 
@@ -50,11 +55,7 @@ const SwitchButton = {
       this.disable();
     }
 
-    this.$('input').on('change', event => {
-      const enabled = event.target.checked;
-
-      this.clickHandler({ enabled });
-    });
+    this.$('input').on('change', this.onSwitchButtonChange.bind(this));
   }
 };
 

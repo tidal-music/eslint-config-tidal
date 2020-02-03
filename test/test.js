@@ -1,71 +1,49 @@
-import test from 'ava';
-import isPlainObj from 'is-plain-obj';
-import tempWrite from 'temp-write';
-import eslint from 'eslint';
-import es5conf from '../';
-import es6conf from '../esnext';
+const test = require('ava');
+const tempWrite = require('temp-write');
+const isPlainObj = require('is-plain-obj');
+const eslint = require('eslint');
 
-function runEslint (file, conf) {
+const baseConf = require('../index.js');
+const legacyConf = require('../legacy.js');
+
+function runEslint(file, conf) {
   const linter = new eslint.CLIEngine({
+    configFile: tempWrite.sync(JSON.stringify(conf)),
+    ignore: false,
     useEslintrc: false,
-    configFile: tempWrite.sync(JSON.stringify(conf))
   });
 
   return linter.executeOnFiles([file]).results[0].messages;
 }
 
-const getUniqueValues = arr => ([...new Set(arr)]);
+const getUniqueValues = (arr) => ([...new Set(arr)]);
 
-test('Fails on bad JS', t => {
-  const conf = es5conf;
+test('Fails on base config', (t) => {
+  const conf = baseConf;
 
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
   const errors = runEslint('test/cases/ugly-javascript.js', conf);
-  const errorsAsRuleIds = getUniqueValues(errors.map(item => item.ruleId));
+  const errorsAsRuleIds = getUniqueValues(errors.map((item) => item.ruleId));
 
   const expectedErrors = [
     'strict',
     'semi',
-    'space-before-function-paren',
-    'space-before-blocks',
-    'comma-style',
-    'indent',
+    'no-var',
     'no-unused-vars',
-    'quotes',
-    'no-multiple-empty-lines',
-    'no-console'
+    'func-names',
+    'space-before-blocks',
   ];
 
-  const expectedErrorsFound = errorsAsRuleIds.filter(error => expectedErrors.indexOf(error) !== -1);
+  // eslint-disable-next-line max-len
+  const expectedErrorsFound = errorsAsRuleIds.filter((error) => expectedErrors.indexOf(error) !== -1);
 
   t.is(expectedErrorsFound.length, expectedErrors.length);
 });
 
-test('Fails on bad ES', t => {
-  const conf = es6conf;
-
-  t.true(isPlainObj(conf));
-  t.true(isPlainObj(conf.rules));
-
-  const errors = runEslint('test/cases/ugly-es6.js', conf);
-  const errorsAsRuleIds = getUniqueValues(errors.map(item => item.ruleId));
-  const expectedErrors = [
-    'strict',
-    'semi',
-    'no-unused-vars',
-    'space-before-blocks',
-    'space-before-function-paren'
-  ];
-
-  const expectedErrorsFound = errorsAsRuleIds.filter(error => expectedErrors.indexOf(error) !== -1);
-
-  t.is(expectedErrorsFound.length, expectedErrors.length);
-});
-
-test('Success on good JS', t => {
-  const conf = es5conf;
+test('Success on base config', (t) => {
+  const conf = baseConf;
 
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
@@ -75,13 +53,42 @@ test('Success on good JS', t => {
   t.is(errors.length, 0);
 });
 
-test('Success on good ES', t => {
-  const conf = es6conf;
+test('Fails on legacy config', (t) => {
+  const conf = legacyConf;
 
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint('test/cases/nice-es6.js', conf);
+  const errors = runEslint('test/cases/ugly-legacy.js', conf);
+  const errorsAsRuleIds = getUniqueValues(errors.map((item) => item.ruleId));
+
+  const expectedErrors = [
+    'lines-around-directive',
+    'semi',
+    'one-var',
+    'space-before-function-paren',
+    'space-before-blocks',
+    'indent',
+    'no-unused-vars',
+    'quotes',
+    'no-param-reassign',
+    'no-multiple-empty-lines',
+    'no-console',
+  ];
+
+  // eslint-disable-next-line max-len
+  const expectedErrorsFound = errorsAsRuleIds.filter((error) => expectedErrors.indexOf(error) !== -1);
+
+  t.is(expectedErrorsFound.length, expectedErrors.length);
+});
+
+test('Success on legacy config', (t) => {
+  const conf = legacyConf;
+
+  t.true(isPlainObj(conf));
+  t.true(isPlainObj(conf.rules));
+
+  const errors = runEslint('test/cases/nice-legacy.js', conf);
 
   t.is(errors.length, 0);
 });

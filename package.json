@@ -1,61 +1,80 @@
 {
   "name": "eslint-config-tidal",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "ESLint sharable config for TIDAL",
   "files": [
     "index.js",
-    "esnext.js",
-    "browser.js"
+    "flow.js",
+    "typescript.js",
+    "react.js",
+    "legacy.js"
   ],
+  "scripts": {
+    "test": "ava test/test.js",
+    "lint": "eslint --report-unused-disable-directives ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tidal-engineering/eslint-config-tidal.git"
   },
-  "author": {
-    "name": "Jeremy Karlsson",
-    "email": "jeremy.karlsson@tidal.com",
-    "url": "https://listen.tidal.com"
+  "author": "TIDAL",
+  "contributors": [
+    {
+      "name": "Koen Romers",
+      "url": "https://koenromers.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tidal-engineering/eslint-config-tidal/issues"
   },
+  "homepage": "https://github.com/tidal-engineering/eslint-config-tidal#readme",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "hint",
+    "lint",
+    "linter",
+    "style",
+    "tidal hifi",
+    "tidal",
+    "validate",
+    "javascript",
+    "styleguide",
+    "es2015",
+    "es2016",
+    "es2017",
+    "es2018"
+  ],
   "engines": {
     "node": ">=10"
   },
-  "scripts": {
-    "test": "ava test/test.js",
-    "lint": "npx eslint *.js test/test.js"
-  },
-  "ava": {
-    "require": [
-      "esm"
-    ]
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/enjikaka/eslint-config-tidal/issues"
-  },
-  "homepage": "https://github.com/enjikaka/eslint-config-tidal#readme",
-  "keywords": [
-    "tidal",
-    "tidal hifi",
-    "code",
-    "quality",
-    "style",
-    "lint",
-    "linter",
-    "validate",
-    "code style",
-    "hint"
-  ],
   "devDependencies": {
-    "ava": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "ava": "^3.2.0",
     "eslint": "^6.8.0",
-    "esm": "^3.2.25",
-    "is-plain-obj": "^2.0.0",
+    "eslint-plugin-flowtype": "^4.6.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jest": "^23.6.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "is-plain-obj": "^2.1.0",
     "temp-write": "^4.0.0"
   },
   "dependencies": {
-    "eslint-config-xo": "^0.27.2"
+    "confusing-browser-globals": "^1.0.9"
   },
   "peerDependencies": {
-    "eslint": ">=6.8.0"
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-flowtype": "^4.6.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jest": "^23.6.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0"
   }
 }
