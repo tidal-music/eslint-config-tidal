@@ -15,7 +15,7 @@ module.exports = {
   },
   rules: {
     'comma-dangle': ['error', 'never'],
-    'prefer-numeric-literals': 'off',
+    'func-names': 'off',
     'no-restricted-properties': [
       'error',
       {
@@ -33,6 +33,7 @@ module.exports = {
       },
     ],
     'no-var': 'off',
+    'prefer-numeric-literals': 'off',
     strict: ['error', 'safe'],
   },
 };

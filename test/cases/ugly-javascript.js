@@ -1,15 +1,15 @@
+
+/* eslint-env es6 */
+
 'use strict'
-var foo = function(){},
-    bar = 13;
 
-bar = "";
+var something = {
+  someFunction: function (){
+    var world = this.world();
 
-
-foo = function (huh){
-huh = 12;
-}
-        foo();
-
-
-
-console.log('I log stuff (:');
+    return 'hello' + world
+  },
+  world(hai = 2) {
+    return hai;
+  }
+};

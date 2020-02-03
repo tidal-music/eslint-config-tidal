@@ -1,3 +1,5 @@
+/* eslint-env es6 */
+
 const switchButtonTemplate = '';
 
 const SwitchButton = {
