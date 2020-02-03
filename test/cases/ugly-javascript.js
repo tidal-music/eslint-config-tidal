@@ -1,6 +1,3 @@
-
-/* eslint-env es6 */
-
 'use strict'
 
 var something = {
