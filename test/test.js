@@ -7,6 +7,13 @@ const baseConf = require('../index.js');
 // const legacyConf = require('../legacy.js');
 
 const getUniqueValues = (arr) => ([...new Set(arr)]);
+const getESLint = (conf) => (
+  new ESLint({
+    overrideConfigFile: tempWrite.sync(JSON.stringify(conf)),
+    ignore: false,
+    useEslintrc: false,
+  })
+);
 
 test('Fails on base config', async (t) => {
   const conf = baseConf;
@@ -14,15 +21,12 @@ test('Fails on base config', async (t) => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const eslint = new ESLint({
-    overrideConfigFile: tempWrite.sync(JSON.stringify(conf)),
-    ignore: false,
-    useEslintrc: false,
-  });
+  const eslint = getESLint(conf);
   const results = await eslint.lintFiles(['test/cases/ugly-javascript.js']);
-  const formatter = await eslint.loadFormatter('stylish');
-  const resultText = formatter.format(results);
-  const errorsAsRuleIds = getUniqueValues(resultText.map((item) => item.ruleId));
+  // const formatter = await eslint.loadFormatter('stylish');
+  // const resultText = formatter.format(results);
+  const errors = results[0].messages;
+  const errorsAsRuleIds = getUniqueValues(errors.map((item) => item.ruleId));
 
   const expectedErrors = [
     'strict',
