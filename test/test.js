@@ -2,6 +2,7 @@ const test = require('ava');
 const tempWrite = require('temp-write');
 const isPlainObj = require('is-plain-obj');
 const { ESLint } = require('eslint');
+const path = require('path');
 
 const baseConf = require('../index.js');
 const legacyConf = require('../legacy.js');
@@ -13,6 +14,7 @@ async function runEslint(file, conf) {
     overrideConfigFile: tempWrite.sync(JSON.stringify(conf)),
     ignore: false,
     useEslintrc: false,
+    resolvePluginsRelativeTo: path.join(__dirname, '..'),
   });
   const results = await linter.lintFiles([file]);
   return results[0].messages;
