@@ -32,10 +32,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/interface-name-prefix': [
-      'error',
-      { prefixWithI: 'always' },
-    ],
     '@typescript-eslint/member-delimiter-style': [
       'off',
       {
