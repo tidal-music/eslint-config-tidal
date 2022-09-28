@@ -7,7 +7,8 @@
     "flow.js",
     "typescript.js",
     "react.js",
-    "legacy.js"
+    "legacy.js",
+    "rules"
   ],
   "scripts": {
     "test": "ava test/test.js",
