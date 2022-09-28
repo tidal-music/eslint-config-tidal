@@ -1,3 +1,6 @@
+// Yes, I realise the irony of ignoring the linter in a linting package.
+// https://github.com/avajs/ava/issues/3088
+// eslint-disable-next-line import/no-unresolved
 const test = require('ava');
 const tempWrite = require('temp-write');
 const isPlainObj = require('is-plain-obj');

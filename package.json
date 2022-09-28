@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-tidal",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "ESLint sharable config for TIDAL",
   "files": [
     "index.js",
@@ -47,34 +47,34 @@
     "es2018"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.0.2",
-    "@typescript-eslint/parser": "^3.0.2",
-    "ava": "^3.8.2",
-    "eslint": "^7.1.0",
-    "eslint-plugin-flowtype": "^5.1.3",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jest": "^23.13.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.4",
-    "is-plain-obj": "^2.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "ava": "^4.3.3",
+    "eslint": "^8.24.0",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.0.4",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "is-plain-obj": "^3.0.0",
     "temp-write": "^4.0.0"
   },
   "dependencies": {
-    "confusing-browser-globals": "^1.0.9"
+    "confusing-browser-globals": "^1.0.11"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.0.2",
-    "@typescript-eslint/parser": "^3.0.2",
-    "eslint": "^7.1.0",
-    "eslint-plugin-flowtype": "^5.1.3",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jest": "^23.13.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.4"
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "eslint": "^8.24.0",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.0.4",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0"
   }
 }
