@@ -26,7 +26,6 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-// Export a single config instance, since this is a config to be included elsewhere..?
 /** @type { import("eslint").Linter.FlatConfig[] } */
 export default [
   js.configs.recommended,
@@ -64,9 +63,7 @@ export default [
       'capitalized-comments': 'off',
       complexity: 'error',
       curly: 'error',
-      // "import/named": "error", // PS this is broken ("eslint-plugin-import": "^2.9.0"): Cannot find module '/Users/osmestad/Code/wimp-web-client/node_modules/react-virtualized/webpack/webpack.config.dev.js'
       'import/export': 'error',
-      // Consistent file extensions on imports
       'import/newline-after-import': 'error',
       'import/no-absolute-path': 'error',
       // "import/no-commonjs": "error", // Should add? (used in tests? specify as Node?)
@@ -85,44 +82,10 @@ export default [
         peerDependencies: false,
         },
         ], */,
-      // Not sure about this one?
       'import/no-named-as-default': 'off',
-      // "import/namespace": "error", // PS this is broken ("eslint-plugin-import": "^2.9.0"): Cannot find module '/Users/osmestad/Code/wimp-web-client/node_modules/react-virtualized/webpack/webpack.config.dev.js'
       'import/no-restricted-paths': 'error',
       'import/no-self-import': 'error',
       'import/no-unresolved': 'error',
-
-      // "import/no-internal-modules": "error", Would cause a lot of errors.. (3751)
-      /* This rule is slow and did not find anything useful when last ran, but might be of use for one-off runs:
-      'import/no-unused-modules': [
-        'error',
-        {
-          ignoreExports: [
-            '** /*.story.tsx',
-            '** /*.test.ts',
-            '** /*.test.tsx',
-            'types/*',
-            '.eslintrc.js',
-            '__mocks__/fileMock.js',
-            '__mocks__/styleMock.js',
-            'babel.config.js',
-            'dangerfile.js',
-            'jest-setup.js',
-            'jest.config.js',
-            'packages/builder/src/webpack/** /*',
-            'packages/core/src/head.ts',
-            'packages/cypress-tests/cypress/** /*',
-            'packages/product-analytics/src/groups/** /*',
-            'packages/tv/src/index.tsx',
-            'packages/web/src/appMain.tsx',
-            'packages/web/src/utils/standalonePage.ts',
-            'webstorm.config.js',
-          ],
-          missingExports: true,
-          unusedExports: true,
-        },
-      ],
-      */
       'import/no-webpack-loader-syntax': 'error',
       'import/order': [
         'error',
@@ -202,7 +165,6 @@ export default [
         },
       ],
       'no-warning-comments': 'off',
-      // handled by TS rule (no-floating-promises) instead? 'promise/catch-or-return': 'error',
       'react-hooks/exhaustive-deps': 'error',
       'react-hooks/rules-of-hooks': 'error',
       // Broken completely here: `tv/src/components/artistHeader/artistHeader.js:20`:
@@ -232,7 +194,6 @@ export default [
       'sort-destructure-keys/sort-destructure-keys': 'error',
       'sort-keys-fix/sort-keys-fix': 'error',
       'tidal-extras/no-get-artist': 'off',
-      // These generate too much noise now:
       'valid-jsdoc': 'off',
 
       ...tsPlugin.configs['recommended-type-checked'].rules,
