@@ -50,6 +50,7 @@ export default [
       '@typescript-eslint': tsPlugin,
       import: importPlugin,
       istanbul,
+      'no-only-tests': noOnlyTestsPlugin,
       prettier,
       'sort-destructure-keys': sortDestructureKeysPlugin,
       'sort-keys-fix': sortKeysFixPlugin,
@@ -182,6 +183,7 @@ export default [
       'newline-before-return': 'off',
       'no-console': ['error', { allow: ['error', 'warn', 'debug', 'table'] }],
       'no-duplicate-imports': 'off', // We use the rule from eslint-plugin-import
+      'no-only-tests/no-only-tests': 'error',
       'no-prototype-builtins': 'error',
       'no-restricted-imports': [
         'warn',
@@ -341,13 +343,11 @@ export default [
     },
     plugins: {
       cypress,
-      'no-only-tests': noOnlyTestsPlugin,
     },
     rules: {
       ...cypress.configs.recommended.rules,
       'cypress/no-force': 'error',
       'cypress/unsafe-to-chain-command': 'warn',
-      'no-only-tests/no-only-tests': 'error',
     },
   },
   // For unit tests
