@@ -3,12 +3,7 @@
   "version": "2.1.1",
   "description": "ESLint sharable config for TIDAL",
   "files": [
-    "index.js",
-    "flow.js",
-    "typescript.js",
-    "react.js",
-    "legacy.js",
-    "rules"
+    "index.js"
   ],
   "scripts": {
     "test": "ava test/test.js",
