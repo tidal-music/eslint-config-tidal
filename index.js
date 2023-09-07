@@ -7,12 +7,15 @@ import typedReduxSagaPlugin from '@jambit/eslint-plugin-typed-redux-saga';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import cypress from 'eslint-plugin-cypress';
 import importPlugin from 'eslint-plugin-import';
 import istanbul from 'eslint-plugin-istanbul';
+import noOnlyTestsPlugin from 'eslint-plugin-no-only-tests';
 import prettier from 'eslint-plugin-prettier';
 import sortDestructureKeysPlugin from 'eslint-plugin-sort-destructure-keys';
 import sortKeysFixPlugin from 'eslint-plugin-sort-keys-fix';
 import tsSortKeysPlugin from 'eslint-plugin-typescript-sort-keys';
+import vitest from 'eslint-plugin-vitest';
 import globals from 'globals';
 
 // mimic CommonJS variables -- not needed if using CommonJS
@@ -326,6 +329,58 @@ export default [
     settings: {
       'import/resolver': {
         typescript: {},
+      },
+    },
+  },
+  // Cypress
+  {
+    files: ['**/*.cy.ts'],
+    languageOptions: {
+      globals: cypress.environments.globals.globals,
+    },
+    plugins: {
+      cypress,
+      'no-only-tests': noOnlyTestsPlugin,
+    },
+    rules: {
+      ...cypress.configs.recommended.rules,
+      'cypress/no-force': 'error',
+      'cypress/unsafe-to-chain-command': 'warn',
+      'no-only-tests/no-only-tests': 'error',
+    },
+  },
+  // For unit tests
+  {
+    files: ['**/*.test.ts', '**/*.test.tsx', '__mocks__/**/*.ts'],
+    ignores: ['**/*.auto.test.tsx'],
+    languageOptions: {
+      // @ts-expect-error
+      globals: vitest.environments.env.globals,
+    },
+    plugins: { vitest },
+    rules: {
+      // @ts-expect-error
+      ...vitest.configs.recommended.rules,
+      'vitest/prefer-to-be': 'off',
+      'vitest/prefer-todo': 'error',
+    },
+  },
+  // Typescript type definitions
+  {
+    files: ['**/*.d.ts'],
+    rules: {
+      '@typescript-eslint/consistent-type-definitions': 'off',
+      'no-var': 'off',
+      'one-var': 'off',
+      'vars-on-top': 'off',
+    },
+  },
+  // For Node.js scripts
+  {
+    files: ['**/scripts/*'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
       },
     },
   },
