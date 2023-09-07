@@ -45,7 +45,7 @@
     "es2018"
   ],
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "devDependencies": {
     "@types/eslint": "^8.44.2",
