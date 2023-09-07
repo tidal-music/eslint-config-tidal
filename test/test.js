@@ -1,9 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// Yes, I realise the irony of ignoring the linter in a linting package.
-// https://github.com/avajs/ava/issues/3088
-// eslint-disable-next-line import/no-unresolved
 import test from 'ava';
 import { ESLint } from 'eslint';
 //import isPlainObj from 'is-plain-obj';
