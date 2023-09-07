@@ -324,11 +324,8 @@ export default [
       'typescript-sort-keys/string-enum': 'error',
     },
     settings: {
-      'import/internal-regex': '^@tidal/',
       'import/resolver': {
-        node: {
-          extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        },
+        typescript: {},
       },
     },
   },
