@@ -294,6 +294,7 @@ export default [
         'never',
         {
           js: 'ignorePackages',
+          json: 'always',
         },
       ],
       'import/named': 'off',
@@ -334,7 +335,7 @@ export default [
   },
   // Cypress
   {
-    files: ['**/*.cy.ts'],
+    files: ['**/cypress/**/*'],
     languageOptions: {
       globals: cypress.environments.globals.globals,
     },
@@ -382,6 +383,9 @@ export default [
       globals: {
         ...globals.node,
       },
+    },
+    rules: {
+      'no-console': 'off',
     },
   },
 ];
