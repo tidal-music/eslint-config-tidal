@@ -294,6 +294,9 @@ export default [
       'import/resolver': {
         typescript: {},
       },
+      react: {
+        version: '18.2.0',
+      },
     },
   },
   // Cypress
