@@ -57,14 +57,86 @@ export default [
       'typescript-sort-keys': tsSortKeysPlugin,
     },
     rules: {
+      ...tsPlugin.configs['recommended-type-checked'].rules,
+      ...tsPlugin.configs['stylistic-type-checked'].rules,
+      ...importPlugin.configs.typescript.rules,
       '@jambit/typed-redux-saga/delegate-effects': 'error',
       '@jambit/typed-redux-saga/use-typed-effects': ['error', 'macro'],
+      '@typescript-eslint/array-type': ['error', { default: 'generic' }],
+      '@typescript-eslint/await-thenable': 'error',
+      '@typescript-eslint/ban-ts-comment': 'warn',
+      '@typescript-eslint/ban-types': [
+        'warn',
+        {
+          /* Disable this for now, we need null more places than we first thought
+          types: {
+            null: "Use 'undefined' instead of 'null', or better yet '?' optional syntax",
+          }, */
+        },
+      ],
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/naming-convention': [
+        'error',
+        {
+          format: ['PascalCase'],
+          selector: 'typeLike',
+        },
+      ],
+      '@typescript-eslint/no-empty-function': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-floating-promises': 'warn',
+      '@typescript-eslint/no-misused-promises':
+        'error' /* Off for now. Should ignore root deps [
+        'error',
+        {
+        devDependencies: false,
+        optionalDependencies: false,
+        peerDependencies: false,
+        },
+        ], */,
+      '@typescript-eslint/no-redeclare': 'error',
+      '@typescript-eslint/no-shadow': 'error',
+      '@typescript-eslint/no-unsafe-argument': 'warn',
+      '@typescript-eslint/no-unsafe-assignment': 'warn',
+      '@typescript-eslint/no-unsafe-call': 'warn',
+      '@typescript-eslint/no-unsafe-member-access': 'warn',
+      '@typescript-eslint/no-unsafe-return': 'warn',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          ignoreRestSiblings: true,
+        },
+      ],
+      '@typescript-eslint/no-var-requires': 'error',
+      '@typescript-eslint/prefer-nullish-coalescing': 'warn',
+      '@typescript-eslint/prefer-regexp-exec': 'warn',
+      '@typescript-eslint/require-await': 'warn',
+      '@typescript-eslint/restrict-plus-operands': 'warn',
+      '@typescript-eslint/restrict-template-expressions': 'warn',
+      '@typescript-eslint/sort-type-constituents': 'error',
+      '@typescript-eslint/triple-slash-reference': 'error',
+      '@typescript-eslint/unbound-method': 'warn',
       // To allow deprecated React hooks for now, like: 'UNSAFE_componentWillReceiveProps'
       camelcase: 'warn',
       'capitalized-comments': 'off',
       complexity: 'error',
       curly: 'error',
+      // From typescript-eslint: We recommend you do not use the following rules, as TypeScript provides the same checks as part of standard type checking:
+      // import/named, import/namespace, import/default, import/no-named-as-default-member
+      'import/default': 'off',
       'import/export': 'error',
+      // Consistent file extensions on imports
+      'import/extensions': [
+        'error',
+        'never',
+        {
+          js: 'ignorePackages',
+          json: 'always',
+        },
+      ],
+      'import/named': 'off',
+      'import/namespace': 'off',
       'import/newline-after-import': 'error',
       'import/no-absolute-path': 'error',
       // "import/no-commonjs": "error", // Should add? (used in tests? specify as Node?)
@@ -74,16 +146,11 @@ export default [
       //FIXME heap overflow this line 'import/no-deprecated': 'error',
       'import/no-duplicates': 'error',
       //FIXME heap overflow this line 'import/no-dynamic-require': 'error',
-      'import/no-extraneous-dependencies':
-        'off' /* Off for now. Should ignore root deps [
-        'error',
-        {
-        devDependencies: false,
-        optionalDependencies: false,
-        peerDependencies: false,
-        },
-        ], */,
+      'import/no-extraneous-dependencies': 'off', // Off for now. Should ignore root deps?
       'import/no-named-as-default': 'off',
+      //FIXME this line causes the stack to overflow?
+      //'import/no-deprecated': 'warn',
+      'import/no-named-as-default-member': 'off',
       'import/no-restricted-paths': 'error',
       'import/no-self-import': 'error',
       'import/no-unresolved': 'error',
@@ -148,6 +215,7 @@ export default [
       'no-duplicate-imports': 'off', // We use the rule from eslint-plugin-import
       'no-only-tests/no-only-tests': 'error',
       'no-prototype-builtins': 'error',
+      'no-redeclare': 'off',
       'no-restricted-imports': [
         'warn',
         {
@@ -164,7 +232,29 @@ export default [
           name: 'immutable',
         },
       ],
+      'no-restricted-syntax': [
+        'warn',
+        // ban all enums
+        {
+          message:
+            'Prefer string unions over enums, avoids possible Babel problems and: https://blog.bam.tech/developer-news/should-you-use-enums-or-union-types-in-typescript',
+          selector: 'TSEnumDeclaration',
+        },
+      ],
+      'no-shadow': 'off',
+      'no-undef': 'off',
+      // https://typescript-eslint.io/linting/troubleshooting/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+      // note you must disable the base rule as it can report incorrect errors
+      'no-unused-vars': 'off',
       'no-warning-comments': 'off',
+      'prettier/prettier': [
+        'error',
+        {
+          arrowParens: 'avoid',
+          singleQuote: true,
+          trailingComma: 'all',
+        },
+      ],
       'react-hooks/exhaustive-deps': 'error',
       'react-hooks/rules-of-hooks': 'error',
       // Broken completely here: `tv/src/components/artistHeader/artistHeader.js:20`:
@@ -194,101 +284,9 @@ export default [
       'sort-destructure-keys/sort-destructure-keys': 'error',
       'sort-keys-fix/sort-keys-fix': 'error',
       'tidal-extras/no-get-artist': 'off',
-      'valid-jsdoc': 'off',
-
-      ...tsPlugin.configs['recommended-type-checked'].rules,
-      ...tsPlugin.configs['stylistic-type-checked'].rules,
-      ...importPlugin.configs.typescript.rules,
-
-      '@typescript-eslint/array-type': ['error', { default: 'generic' }],
-      '@typescript-eslint/await-thenable': 'error',
-      '@typescript-eslint/ban-ts-comment': 'warn',
-      '@typescript-eslint/ban-types': [
-        'warn',
-        {
-          /* Disable this for now, we need null more places than we first thought
-          types: {
-            null: "Use 'undefined' instead of 'null', or better yet '?' optional syntax",
-          }, */
-        },
-      ],
-      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/naming-convention': [
-        'error',
-        {
-          format: ['PascalCase'],
-          selector: 'typeLike',
-        },
-      ],
-      '@typescript-eslint/no-empty-function': 'warn',
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-floating-promises': 'warn',
-      '@typescript-eslint/no-misused-promises': 'error',
-      '@typescript-eslint/no-redeclare': 'error',
-      '@typescript-eslint/no-shadow': 'error',
-      '@typescript-eslint/no-unsafe-argument': 'warn',
-      '@typescript-eslint/no-unsafe-assignment': 'warn',
-      '@typescript-eslint/no-unsafe-call': 'warn',
-      '@typescript-eslint/no-unsafe-member-access': 'warn',
-      '@typescript-eslint/no-unsafe-return': 'warn',
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        {
-          ignoreRestSiblings: true,
-        },
-      ],
-      '@typescript-eslint/no-var-requires': 'error',
-      '@typescript-eslint/prefer-nullish-coalescing': 'warn',
-      '@typescript-eslint/prefer-regexp-exec': 'warn',
-      '@typescript-eslint/require-await': 'warn',
-      '@typescript-eslint/restrict-plus-operands': 'warn',
-      '@typescript-eslint/restrict-template-expressions': 'warn',
-      '@typescript-eslint/sort-type-constituents': 'error',
-      '@typescript-eslint/triple-slash-reference': 'error',
-      '@typescript-eslint/unbound-method': 'warn',
-
-      // From typescript-eslint: We recommend you do not use the following rules, as TypeScript provides the same checks as part of standard type checking:
-      // import/named, import/namespace, import/default, import/no-named-as-default-member
-      'import/default': 'off',
-      // Consistent file extensions on imports
-      'import/extensions': [
-        'error',
-        'never',
-        {
-          js: 'ignorePackages',
-          json: 'always',
-        },
-      ],
-      'import/named': 'off',
-      'import/namespace': 'off',
-      //FIXME this line causes the stack to overflow?
-      //'import/no-deprecated': 'warn',
-      'import/no-named-as-default-member': 'off',
-      'no-redeclare': 'off',
-      'no-restricted-syntax': [
-        'warn',
-        // ban all enums
-        {
-          message:
-            'Prefer string unions over enums, avoids possible Babel problems and: https://blog.bam.tech/developer-news/should-you-use-enums-or-union-types-in-typescript',
-          selector: 'TSEnumDeclaration',
-        },
-      ],
-      'no-shadow': 'off',
-      'no-undef': 'off', // https://typescript-eslint.io/linting/troubleshooting/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
-      // note you must disable the base rule as it can report incorrect errors
-      'no-unused-vars': 'off',
-      'prettier/prettier': [
-        'error',
-        {
-          arrowParens: 'avoid',
-          singleQuote: true,
-          trailingComma: 'all',
-        },
-      ],
       'typescript-sort-keys/interface': 'error',
       'typescript-sort-keys/string-enum': 'error',
+      'valid-jsdoc': 'off',
     },
     settings: {
       'import/resolver': {
@@ -299,6 +297,7 @@ export default [
       },
     },
   },
+  // Following are some file type specific overrides:
   // Cypress
   {
     files: ['**/cypress/**/*'],
