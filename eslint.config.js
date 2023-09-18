@@ -6,6 +6,9 @@ import tidal from './index.js';
 export default [
   ...tidal,
   {
+    files: ['*.js', '**/*.js', '**/*.ts', '**/*.tsx'],
+  },
+  {
     ignores: ['test/cases/*'],
   },
   {
@@ -13,6 +16,9 @@ export default [
       globals: {
         ...globals.node,
       },
+    },
+    settings: {
+      'import/internal-regex': '^@tidal/',
     },
   },
 ];

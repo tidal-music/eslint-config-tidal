@@ -59,3 +59,45 @@ test('Success on nice files', async t => {
     errors.map(console.log);
   }
 });
+
+test('Fails on unsorted file', async t => {
+  const errors = await runEslint('test/cases/ugly-sort.tsx');
+  const errorsAsRuleIds = getUniqueValues(
+    errors.map((/** @type {{ ruleId: any; }} */ item) => item.ruleId),
+  );
+
+  const expectedErrors = [
+    'import/order',
+    'typescript-sort-keys/interface',
+    '@typescript-eslint/sort-type-constituents',
+    'sort-destructure-keys/sort-destructure-keys',
+  ];
+
+  const expectedErrorsFound = errorsAsRuleIds.filter(
+    error => expectedErrors.indexOf(error) !== -1,
+  );
+
+  // All expected error types are found:
+  t.is(expectedErrorsFound.length, expectedErrors.length);
+
+  // All found errors are of expected types:
+  const unexpectedErrorsFound = errorsAsRuleIds.filter(
+    error => expectedErrors.indexOf(error) === -1,
+  );
+  t.is(unexpectedErrorsFound.length, 0);
+
+  // Total number of seen errors:
+  t.is(errors.length, 9);
+});
+
+test('Success on sorted file', async t => {
+  const errors = await runEslint('test/cases/nice-sort.tsx');
+
+  t.is(errors.length, 0);
+
+  // For debugging:
+  if (errors.length) {
+    // eslint-disable-next-line no-console
+    errors.map(console.log);
+  }
+});
