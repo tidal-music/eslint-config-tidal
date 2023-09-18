@@ -9,7 +9,6 @@ import tsParser from '@typescript-eslint/parser';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import cypress from 'eslint-plugin-cypress';
 import importPlugin from 'eslint-plugin-import';
-import istanbul from 'eslint-plugin-istanbul';
 import noOnlyTestsPlugin from 'eslint-plugin-no-only-tests';
 import prettier from 'eslint-plugin-prettier';
 import sortDestructureKeysPlugin from 'eslint-plugin-sort-destructure-keys';
@@ -17,6 +16,8 @@ import sortKeysFixPlugin from 'eslint-plugin-sort-keys-fix';
 import tsSortKeysPlugin from 'eslint-plugin-typescript-sort-keys';
 import vitest from 'eslint-plugin-vitest';
 import globals from 'globals';
+
+import internalRules from './internal-rules/index.js';
 
 // mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url);
@@ -48,7 +49,7 @@ export default [
       '@jambit/typed-redux-saga': typedReduxSagaPlugin,
       '@typescript-eslint': tsPlugin,
       import: importPlugin,
-      istanbul,
+      'internal-rules': internalRules,
       'no-only-tests': noOnlyTestsPlugin,
       prettier,
       'sort-destructure-keys': sortDestructureKeysPlugin,
@@ -137,8 +138,7 @@ export default [
         },
       ],
       'import/unambiguous': 'off',
-      'istanbul/no-ignore-file': 'error',
-      'istanbul/prefer-ignore-reason': 'error',
+      'internal-rules/require-coverage-ignore-reason': 'error',
       'max-depth': 'error',
       'max-param': 'off',
       'max-params': 'off',

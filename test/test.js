@@ -28,13 +28,24 @@ test('Fails on broken files', async t => {
   const expectedErrors = [
     'prettier/prettier',
     '@typescript-eslint/no-unused-vars',
+    'internal-rules/require-coverage-ignore-reason',
   ];
 
   const expectedErrorsFound = errorsAsRuleIds.filter(
     error => expectedErrors.indexOf(error) !== -1,
   );
 
+  // All expected error types are found:
   t.is(expectedErrorsFound.length, expectedErrors.length);
+
+  // All found errors are of expected types:
+  const unexpectedErrorsFound = errorsAsRuleIds.filter(
+    error => expectedErrors.indexOf(error) === -1,
+  );
+  t.is(unexpectedErrorsFound.length, 0);
+
+  // Total number of seen errors:
+  t.is(errors.length, 6);
 });
 
 test('Success on nice files', async t => {

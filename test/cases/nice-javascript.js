@@ -10,5 +10,6 @@ export const sha256 = async (/** @type {string} */ message) => {
   for (let i = 0; i < len; i += 1) {
     binary += String.fromCharCode(bytes[i]);
   }
+  /* istanbul ignore next because we have some very good reason to */
   return globalThis.btoa(binary);
 };
