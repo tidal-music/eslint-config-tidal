@@ -10,10 +10,9 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import cypress from 'eslint-plugin-cypress';
 import importPlugin from 'eslint-plugin-import';
 import noOnlyTestsPlugin from 'eslint-plugin-no-only-tests';
+import perfectionist from 'eslint-plugin-perfectionist';
+import perfectionistNatural from 'eslint-plugin-perfectionist/configs/recommended-natural';
 import prettier from 'eslint-plugin-prettier';
-import sortDestructureKeysPlugin from 'eslint-plugin-sort-destructure-keys';
-import sortKeysFixPlugin from 'eslint-plugin-sort-keys-fix';
-import tsSortKeysPlugin from 'eslint-plugin-typescript-sort-keys';
 import vitest from 'eslint-plugin-vitest';
 import globals from 'globals';
 
@@ -35,6 +34,7 @@ export default [
   compat.extends('eslint-config-xo-react')[0],
   eslintConfigPrettier,
   //compat.extends("eslint-plugin-prettier/configs/recommended")[0],
+  perfectionistNatural,
   {
     languageOptions: {
       globals: {
@@ -51,10 +51,8 @@ export default [
       import: importPlugin,
       'internal-rules': internalRules,
       'no-only-tests': noOnlyTestsPlugin,
+      perfectionist,
       prettier,
-      'sort-destructure-keys': sortDestructureKeysPlugin,
-      'sort-keys-fix': sortKeysFixPlugin,
-      'typescript-sort-keys': tsSortKeysPlugin,
     },
     rules: {
       ...tsPlugin.configs['recommended-type-checked'].rules,
@@ -114,7 +112,7 @@ export default [
       '@typescript-eslint/require-await': 'warn',
       '@typescript-eslint/restrict-plus-operands': 'warn',
       '@typescript-eslint/restrict-template-expressions': 'warn',
-      '@typescript-eslint/sort-type-constituents': 'error',
+      '@typescript-eslint/sort-type-constituents': 'off',
       '@typescript-eslint/triple-slash-reference': 'error',
       '@typescript-eslint/unbound-method': 'warn',
       // To allow deprecated React hooks for now, like: 'UNSAFE_componentWillReceiveProps'
@@ -247,6 +245,8 @@ export default [
       // note you must disable the base rule as it can report incorrect errors
       'no-unused-vars': 'off',
       'no-warning-comments': 'off',
+      // TODO: consider switching from 'import/order' to this one?
+      'perfectionist/sort-imports': 'off',
       'prettier/prettier': [
         'error',
         {
@@ -269,7 +269,6 @@ export default [
       'react/jsx-handler-names': 'warn',
       'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
       'react/jsx-props-no-spreading': 'warn',
-      // didn't get autofix to work for this, so disabled for now
       'react/jsx-sort-props': 'off',
       'react/no-array-index-key': 'off',
       'react/no-unsafe': 'error',
@@ -281,11 +280,7 @@ export default [
       'react/require-default-props': 'off',
       'react/state-in-constructor': 'warn', // TODO: make error again and fix all
       'react/static-property-placement': 'error',
-      'sort-destructure-keys/sort-destructure-keys': 'error',
-      'sort-keys-fix/sort-keys-fix': 'error',
       'tidal-extras/no-get-artist': 'off',
-      'typescript-sort-keys/interface': 'error',
-      'typescript-sort-keys/string-enum': 'error',
       'valid-jsdoc': 'off',
     },
     settings: {

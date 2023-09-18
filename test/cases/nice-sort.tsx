@@ -45,11 +45,11 @@ export function ProfileImageRepresentation({
   // Sorted JSX props:
   return (
     <ResourceImage
-      width={desiredWidth}
       className={classnames(styles.profilePicture, className)}
       desiredWidth={desiredWidth}
       resourceId={resourceId}
       type="profile"
+      width={desiredWidth}
     />
   );
 }

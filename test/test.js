@@ -68,9 +68,10 @@ test('Fails on unsorted file', async t => {
 
   const expectedErrors = [
     'import/order',
-    'typescript-sort-keys/interface',
-    '@typescript-eslint/sort-type-constituents',
-    'sort-destructure-keys/sort-destructure-keys',
+    'perfectionist/sort-object-types',
+    'perfectionist/sort-union-types',
+    'perfectionist/sort-objects',
+    'perfectionist/sort-jsx-props',
   ];
 
   const expectedErrorsFound = errorsAsRuleIds.filter(
@@ -87,7 +88,7 @@ test('Fails on unsorted file', async t => {
   t.is(unexpectedErrorsFound.length, 0);
 
   // Total number of seen errors:
-  t.is(errors.length, 9);
+  t.is(errors.length, 10);
 });
 
 test('Success on sorted file', async t => {
