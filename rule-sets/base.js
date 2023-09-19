@@ -233,8 +233,6 @@ export default {
         trailingComma: 'all',
       },
     ],
-    'react-hooks/exhaustive-deps': 'error',
-    'react-hooks/rules-of-hooks': 'error',
     // Broken completely here: `tv/src/components/artistHeader/artistHeader.js:20`:
     'react/boolean-prop-naming': 'off',
     'react/default-props-match-prop-types': 'off',
@@ -258,6 +256,8 @@ export default {
     'react/require-default-props': 'off',
     'react/state-in-constructor': 'warn', // TODO: make error again and fix all
     'react/static-property-placement': 'error',
+    'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/rules-of-hooks': 'error',
     'tidal-extras/no-get-artist': 'off',
     'valid-jsdoc': 'off',
   },
