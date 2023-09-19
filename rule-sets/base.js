@@ -40,7 +40,7 @@ export default {
     '@jambit/typed-redux-saga/use-typed-effects': ['error', 'macro'],
     '@typescript-eslint/array-type': ['error', { default: 'generic' }],
     '@typescript-eslint/await-thenable': 'error',
-    '@typescript-eslint/ban-ts-comment': 'warn',
+    '@typescript-eslint/ban-ts-comment': 'error',
     '@typescript-eslint/ban-types': [
       'warn',
       {
