@@ -4,6 +4,7 @@ import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import confusingBrowserGlobals from 'confusing-browser-globals';
 import importPlugin from 'eslint-plugin-import';
+import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import noOnlyTestsPlugin from 'eslint-plugin-no-only-tests';
 import perfectionist from 'eslint-plugin-perfectionist';
 import prettier from 'eslint-plugin-prettier';
@@ -28,6 +29,7 @@ export default {
     '@typescript-eslint': tsPlugin,
     import: importPlugin,
     'internal-rules': internalRules,
+    'jsx-a11y': jsxA11yPlugin,
     'no-only-tests': noOnlyTestsPlugin,
     perfectionist,
     prettier,
@@ -37,6 +39,7 @@ export default {
     ...tsPlugin.configs['stylistic-type-checked'].rules,
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     ...importPlugin.configs.typescript.rules,
+    ...jsxA11yPlugin.configs.recommended.rules,
     '@jambit/typed-redux-saga/delegate-effects': 'error',
     '@jambit/typed-redux-saga/use-typed-effects': ['error', 'macro'],
     '@typescript-eslint/array-type': ['error', { default: 'generic' }],
