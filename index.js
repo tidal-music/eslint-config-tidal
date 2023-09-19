@@ -24,10 +24,8 @@ const compat = new FlatCompat({
 export default [
   js.configs.recommended,
   compat.extends('eslint-config-xo/browser')[0],
-  // maybe add: compat.extends("eslint-config-xo-typescript")[0],
   compat.extends('eslint-config-xo-react')[0],
   eslintConfigPrettier,
-  //compat.extends("eslint-plugin-prettier/configs/recommended")[0],
   perfectionistNatural,
   // Base Tidal rule set:
   baseRuleSet,

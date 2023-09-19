@@ -62,15 +62,7 @@ export default {
     '@typescript-eslint/no-empty-function': 'warn',
     '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/no-floating-promises': 'warn',
-    '@typescript-eslint/no-misused-promises':
-      'error' /* Off for now. Should ignore root deps [
-        'error',
-        {
-        devDependencies: false,
-        optionalDependencies: false,
-        peerDependencies: false,
-        },
-        ], */,
+    '@typescript-eslint/no-misused-promises': 'error',
     '@typescript-eslint/no-redeclare': 'error',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-unsafe-argument': 'warn',
@@ -93,16 +85,12 @@ export default {
     '@typescript-eslint/sort-type-constituents': 'off',
     '@typescript-eslint/triple-slash-reference': 'error',
     '@typescript-eslint/unbound-method': 'warn',
-    // To allow deprecated React hooks for now, like: 'UNSAFE_componentWillReceiveProps'
     camelcase: 'warn',
     'capitalized-comments': 'off',
     complexity: 'error',
     curly: 'error',
-    // From typescript-eslint: We recommend you do not use the following rules, as TypeScript provides the same checks as part of standard type checking:
-    // import/named, import/namespace, import/default, import/no-named-as-default-member
     'import/default': 'off',
     'import/export': 'error',
-    // Consistent file extensions on imports
     'import/extensions': [
       'error',
       'never',
@@ -188,7 +176,7 @@ export default {
     'newline-after-var': 'off',
     'newline-before-return': 'off',
     'no-console': ['error', { allow: ['error', 'warn', 'debug', 'table'] }],
-    'no-duplicate-imports': 'off', // We use the rule from eslint-plugin-import
+    'no-duplicate-imports': 'off',
     'no-only-tests/no-only-tests': 'error',
     'no-prototype-builtins': 'error',
     'no-redeclare': 'off',
@@ -210,7 +198,6 @@ export default {
     ],
     'no-restricted-syntax': [
       'warn',
-      // ban all enums
       {
         message:
           'Prefer string unions over enums, avoids possible Babel problems and: https://blog.bam.tech/developer-news/should-you-use-enums-or-union-types-in-typescript',
@@ -219,8 +206,6 @@ export default {
     ],
     'no-shadow': 'off',
     'no-undef': 'off',
-    // https://typescript-eslint.io/linting/troubleshooting/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
-    // note you must disable the base rule as it can report incorrect errors
     'no-unused-vars': 'off',
     'no-warning-comments': 'off',
     // TODO: consider switching from 'import/order' to this one?
