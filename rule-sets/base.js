@@ -2,6 +2,7 @@
 import typedReduxSagaPlugin from '@jambit/eslint-plugin-typed-redux-saga';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
+import confusingBrowserGlobals from 'confusing-browser-globals';
 import importPlugin from 'eslint-plugin-import';
 import noOnlyTestsPlugin from 'eslint-plugin-no-only-tests';
 import perfectionist from 'eslint-plugin-perfectionist';
@@ -180,6 +181,7 @@ export default {
     'no-only-tests/no-only-tests': 'error',
     'no-prototype-builtins': 'error',
     'no-redeclare': 'off',
+    'no-restricted-globals': ['error', ...confusingBrowserGlobals],
     'no-restricted-imports': [
       'warn',
       {
