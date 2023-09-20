@@ -1,45 +1,70 @@
 # eslint-config-tidal
 
-[![Build Status](https://travis-ci.org/tidal-engineering/eslint-config-tidal.svg?branch=master)](https://travis-ci.org/tidal-engineering/eslint-config-tidal)
-[![Codacy grade](https://img.shields.io/codacy/grade/e20818172062471ebc0c1b69e5ea0887.svg 'Codacy grade')](https://www.codacy.com/app/karlsson/eslint-config-tidal)
 [![NPM downloads](https://img.shields.io/npm/dm/eslint-config-tidal.svg 'NPM downloads')](https://www.npmjs.com/package/eslint-config-tidal)
 [![NPM version](https://img.shields.io/npm/v/eslint-config-tidal.svg 'NPM version')](https://www.npmjs.com/package/eslint-config-tidal)
-[![Node version](https://img.shields.io/node/v/eslint-config-tidal.svg 'Node version')](https://www.npmjs.com/package/eslint-config-tidal)
-[![Dependency status](https://img.shields.io/david/tidal-engineering/eslint-config-tidal.svg 'Dependency status')](https://david-dm.org/tidal-engineering/eslint-config-tidal)
 
-> ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for the TIDAL Code Style.
+
+> ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for the TIDAL web frontend code style using the new [flat config format](https://eslint.org/docs/latest/use/configure/configuration-files-new).
 
 ## Usage
 
-We export five ESLint configurations for your usage.
+We export one ESLint configuration for your usage (including Prettier for formatting).
 
-### eslint-config-tidal
+Install the package as a `devDependency`: `@tidal-music/eslint-config-tidal` along with `eslint` (and possible any plugins/configs that should be project specific).
 
-Our default export contains all of our base ESLint rules. It requires `eslint` and `eslint-plugin-import`.
+Add a root `eslint.config.js` file, similar to this:
 
-1. Install the correct versions (check `peerDependencies`) of each package:
+```
+import tidal from '@tidal-music/eslint-config-tidal';
 
-```sh
-npm install --save-dev eslint-config-tidal eslint-plugin-import
+/** @type { import("eslint").Linter.FlatConfig[] } */
+export default [
+  ...tidal,
+  {
+    files: ['*.js', '**/*.js', '**/*.ts', '**/*.tsx'],
+  },
+  {
+    ignores: [
+      'node_modules/*',
+      /* Build output folders, etc */
+    ],
+  },
+  /* Add any overrides here */
+];
 ```
 
-2. Add `"extends": "tidal"` to your `.eslintrc`.
+For running from a shell you can add an entry in `package.json`s `scripts` like this:
+```
+"lint:code": "eslint . --cache --cache-strategy content",
+```
+(which will also cache results, so re-runs are faster)
 
-### eslint-config-tidal/flow
+This depends on your `package.json` including `"type": "module"`. If that is not possible, you can work around that by renaming your `eslint.config.js` to: `eslint.config.mjs` and launching it like this instead: `ESLINT_USE_FLAT_CONFIG=true eslint . --config eslint.config.mjs`.
 
-This entry point enables the linting rules for Flow. To use, add `"extends": ["tidal", "tidal/flow"]` to your `.eslintrc`.
-Additional required packages: `eslint-plugin-flowtype`.
+### VSCode setup
 
-### eslint-config-tidal/react
+Install the plugin: [dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-This entry point enables the linting rules for React (requires v16.8+). To use, add `"extends": ["tidal", "tidal/react"]` to your `.eslintrc`.
-Additional required packages: `eslint-plugin-react`, `eslint-plugin-react-hooks`, `eslint-plugin-jest`, `eslint-plugin-jsx-a11y`.
+And then ensure you have this in your workspace or user settings:
+```
+  "[javascript][typescript][typescriptreact][json]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.experimental.useFlatConfig": true
+```
+(This will auto-fix and auto format the files on save.)
 
-### eslint-config-tidal/typescript
+## Philosophy
 
-This entry point enables the linting rules for Typescript. To use, add `"extends": ["tidal", "tidal/typescript", "plugin:import/typescript"]` to your `.eslintrc`.
-Additional required packages: `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`.
+This package is pretty opinionated, if some rules are not suitable in your context they can be disable in your `eslint.config.js` or set to warnings instead of errors, if it makes sense to push for them eventually.
 
-### eslint-config-tidal/legacy
+In this package however rules should (ideally) either be "error" or "off".
 
-Lints ES5 and below. To use, add `"extends": ["tidal", "tidal/legacy"]` to your `.eslintrc`.
+
+## Development:
+
+In the package you want to lint: (assuming it is in a sibling folder)
+`yarn link ../eslint-config-tidal`

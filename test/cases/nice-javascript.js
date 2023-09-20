@@ -1,59 +1,15 @@
-const switchButtonTemplate = '';
-
-const SwitchButton = {
-  initialize(options) {
-    this.options = options || {};
-
-    this.checked = false;
-
-    if (!this.options.clickHandler) {
-      throw new Error('You need to provide a handler. Pass in an object with clickHandler defined.');
-    }
-
-    this.clickHandler = this.options.clickHandler;
-
-    this.render();
-  },
-
-  /**
-   * Disable the use of this button.
-   */
-  disable() {
-    this.$el.addClass('switch-button--disabled');
-    this.$switch.attr('disabled', true);
-  },
-
-  /**
-   * Enable the use of this button.
-   */
-  enable() {
-    this.$el.removeClass('switch-button--disabled');
-    this.$switch.attr('disabled', false);
-  },
-
-  render() {
-    this.$el.html(switchButtonTemplate);
-    this.$switch = this.$('input');
-
-    // Add label text to DOM if specified
-    if (this.options.labelText) {
-      this.$('.js-label-text').text(this.options.labelText);
-    }
-
-    /*
-      Will enable functionality just like the
-      disabled attribute on <button>
-    */
-    if (this.options.disabled) {
-      this.disable();
-    }
-
-    this.$('input').on('change', (event) => {
-      const enabled = event.target.checked;
-
-      this.clickHandler({ enabled });
-    });
-  },
+/**
+ * Generates a SHA256 hash of the content.
+ */
+export const sha256 = async (/** @type {string} */ message) => {
+  const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array
+  const hashBuffer = await globalThis.crypto.subtle.digest('SHA-256', msgUint8); // hash the message
+  const bytes = new Uint8Array(hashBuffer);
+  const len = bytes.byteLength;
+  let binary = '';
+  for (let i = 0; i < len; i += 1) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  /* istanbul ignore next because we have some very good reason to */
+  return globalThis.btoa(binary);
 };
-
-SwitchButton.initialize();
