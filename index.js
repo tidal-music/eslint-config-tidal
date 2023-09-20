@@ -12,7 +12,7 @@ import dtsRuleSet from './rule-sets/dts.js';
 import nodeRuleSet from './rule-sets/node.js';
 import unitTestRuleSet from './rule-sets/unit-test.js';
 
-// mimic CommonJS variables -- not needed if using CommonJS
+// mimic CommonJS variables (in ESM)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
