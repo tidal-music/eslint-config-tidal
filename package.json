@@ -4,7 +4,9 @@
   "description": "ESLint sharable config for TIDAL",
   "type": "module",
   "files": [
-    "index.js"
+    "index.js",
+    "internal-rules",
+    "rule-sets"
   ],
   "main": "index.js",
   "scripts": {
