@@ -38,6 +38,9 @@ For running from a shell you can add an entry in `package.json`s `scripts` like 
 "lint:code": "eslint . --cache --cache-strategy content",
 ```
 (which will also cache results, so re-runs are faster)
+
+This depends on your `package.json` including `"type": "module"`. If that is not possible, you can work around that by renaming your `eslint.config.js` to: `eslint.config.mjs` and launching it like this instead: `ESLINT_USE_FLAT_CONFIG=true eslint . --config eslint.config.mjs`.
+
 ### VSCode setup
 
 Install the plugin: [dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
