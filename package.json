@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-tidal",
+  "name": "@tidal-music/eslint-config-tidal",
   "version": "3.0.0-beta",
   "description": "ESLint sharable config for TIDAL",
   "type": "module",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tidal-engineering/eslint-config-tidal.git"
+    "url": "git+https://github.com/tidal-music/eslint-config-tidal.git"
   },
   "author": "TIDAL",
   "contributors": [
@@ -26,9 +26,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tidal-engineering/eslint-config-tidal/issues"
+    "url": "https://github.com/tidal-music/eslint-config-tidal/issues"
   },
-  "homepage": "https://github.com/tidal-engineering/eslint-config-tidal#readme",
+  "homepage": "https://github.com/tidal-music/eslint-config-tidal#readme",
   "keywords": [
     "eslint",
     "eslintconfig",
