@@ -2,7 +2,7 @@
 import vitest from 'eslint-plugin-vitest';
 
 /** @type { import("eslint").Linter.FlatConfig } */
-export default {
+export const unitTestRuleSet = {
   files: ['**/*.test.ts', '**/*.test.tsx', '__mocks__/**/*.ts'],
   ignores: ['**/*.auto.test.tsx'],
   languageOptions: {

@@ -1,7 +1,7 @@
 // Typescript type definitions
 
 /** @type { import("eslint").Linter.FlatConfig } */
-export default {
+export const dtsRuleSet = {
   files: ['**/*.d.ts'],
   rules: {
     '@typescript-eslint/consistent-type-definitions': 'off',

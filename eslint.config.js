@@ -3,6 +3,7 @@ import globals from 'globals';
 import tidal from './index.js';
 
 /** @type { import("eslint").Linter.FlatConfig[] } */
+// eslint-disable-next-line import/no-default-export
 export default [
   ...tidal,
   {
@@ -16,9 +17,6 @@ export default [
       globals: {
         ...globals.node,
       },
-    },
-    rules: {
-      'import/no-default-export': 'off',
     },
     settings: {
       'import/internal-regex': '^@tidal/',

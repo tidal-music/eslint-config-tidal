@@ -2,7 +2,7 @@
 import globals from 'globals';
 
 /** @type { import("eslint").Linter.FlatConfig } */
-export default {
+export const nodeRuleSet = {
   files: ['**/scripts/*'],
   languageOptions: {
     globals: {
