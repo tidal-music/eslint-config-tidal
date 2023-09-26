@@ -1,5 +1,5 @@
 {
-  "name": "@tidal-music/eslint-config-tidal",
+  "name": "eslint-config-tidal",
   "version": "3.0.0-beta",
   "description": "ESLint sharable config for TIDAL",
   "type": "module",
