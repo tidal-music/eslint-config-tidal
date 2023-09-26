@@ -21,7 +21,9 @@ export default {
     },
     parser: tsParser,
     parserOptions: {
+      ecmaVersion: 'latest',
       project: true,
+      sourceType: 'module',
     },
   },
   plugins: {

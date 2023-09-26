@@ -11,3 +11,5 @@ var something = {
     return hai;
   }
 };
+
+export default { foo: 'bar' };

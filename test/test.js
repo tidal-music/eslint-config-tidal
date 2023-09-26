@@ -29,6 +29,7 @@ test('Fails on broken files', async t => {
     'prettier/prettier',
     '@typescript-eslint/no-unused-vars',
     'internal-rules/require-coverage-ignore-reason',
+    'import/no-default-export',
   ];
 
   const expectedErrorsFound = errorsAsRuleIds.filter(
@@ -45,7 +46,7 @@ test('Fails on broken files', async t => {
   t.is(unexpectedErrorsFound.length, 0);
 
   // Total number of seen errors:
-  t.is(errors.length, 6);
+  t.is(errors.length, 7);
 });
 
 test('Success on nice files', async t => {
