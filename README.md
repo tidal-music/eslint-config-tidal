@@ -68,3 +68,6 @@ In this package however rules should (ideally) either be "error" or "off".
 
 In the package you want to lint: (assuming it is in a sibling folder)
 `yarn link ../eslint-config-tidal`
+
+Updating dependencies:
+`npx npm-check-updates --interactive --format group`
