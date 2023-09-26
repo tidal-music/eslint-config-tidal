@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-tidal",
   "version": "3.0.0-beta",
-  "description": "ESLint sharable config for TIDAL",
+  "description": "ESLint sharable flat config for TIDAL",
   "type": "module",
   "files": [
     "index.js",
@@ -32,19 +32,12 @@
   "keywords": [
     "eslint",
     "eslintconfig",
-    "hint",
-    "lint",
+    "flat",
     "linter",
-    "style",
-    "tidal hifi",
     "tidal",
-    "validate",
     "javascript",
-    "styleguide",
-    "es2015",
-    "es2016",
-    "es2017",
-    "es2018"
+    "typescript",
+    "styleguide"
   ],
   "engines": {
     "node": ">=18"
