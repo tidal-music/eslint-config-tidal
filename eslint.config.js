@@ -17,6 +17,9 @@ export default [
         ...globals.node,
       },
     },
+    rules: {
+      'import/no-default-export': 'off',
+    },
     settings: {
       'import/internal-regex': '^@tidal/',
     },
