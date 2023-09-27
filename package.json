@@ -20,8 +20,20 @@
   "author": "TIDAL",
   "contributors": [
     {
+      "name": "Jeremy Karlsson",
+      "url": "https://tidal.com"
+    },
+    {
       "name": "Koen Romers",
       "url": "https://koenromers.com"
+    },
+    {
+      "name": "Andy Martin",
+      "url": "https://tidal.com"
+    },
+    {
+      "name": "Øyvind Smestad",
+      "url": "https://tidal.com"
     }
   ],
   "license": "MIT",
