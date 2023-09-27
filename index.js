@@ -6,11 +6,11 @@ import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import perfectionistNatural from 'eslint-plugin-perfectionist/configs/recommended-natural';
 
-import baseRuleSet from './rule-sets/base.js';
-import cypressRuleSet from './rule-sets/cypress.js';
-import dtsRuleSet from './rule-sets/dts.js';
-import nodeRuleSet from './rule-sets/node.js';
-import unitTestRuleSet from './rule-sets/unit-test.js';
+import { baseRuleSet } from './rule-sets/base.js';
+import { cypressRuleSet } from './rule-sets/cypress.js';
+import { dtsRuleSet } from './rule-sets/dts.js';
+import { nodeRuleSet } from './rule-sets/node.js';
+import { unitTestRuleSet } from './rule-sets/unit-test.js';
 
 // mimic CommonJS variables (in ESM)
 const __filename = fileURLToPath(import.meta.url);
@@ -21,6 +21,7 @@ const compat = new FlatCompat({
 });
 
 /** @type { import("eslint").Linter.FlatConfig[] } */
+// eslint-disable-next-line import/no-default-export
 export default [
   js.configs.recommended,
   compat.extends('eslint-config-xo/browser')[0],

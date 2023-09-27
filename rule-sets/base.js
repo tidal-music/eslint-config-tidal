@@ -10,15 +10,15 @@ import perfectionist from 'eslint-plugin-perfectionist';
 import prettier from 'eslint-plugin-prettier';
 import globals from 'globals';
 
-import internalRules from '../internal-rules/index.js';
+import { internalRules } from '../internal-rules/index.js';
 
 /** @type { import("eslint").Linter.FlatConfig } */
-// @ts-expect-error the TSParser seems to have some unmatching types
-export default {
+export const baseRuleSet = {
   languageOptions: {
     globals: {
       ...globals.browser,
     },
+    // @ts-expect-error TS parser does not quite match expected type
     parser: tsParser,
     parserOptions: {
       ecmaVersion: 'latest',
@@ -28,6 +28,7 @@ export default {
   },
   plugins: {
     '@jambit/typed-redux-saga': typedReduxSagaPlugin,
+    // @ts-expect-error TS plugin does not quite match expected type
     '@typescript-eslint': tsPlugin,
     import: importPlugin,
     'internal-rules': internalRules,

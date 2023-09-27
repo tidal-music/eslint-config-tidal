@@ -1,6 +1,6 @@
 import { requireCoverageIgnoreReason } from './require-coverage-ignore-reason.js';
 
-export default {
+export const internalRules = {
   rules: {
     'require-coverage-ignore-reason': requireCoverageIgnoreReason,
   },

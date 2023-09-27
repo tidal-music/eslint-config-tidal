@@ -10,12 +10,12 @@
 
 We export one ESLint configuration for your usage (including Prettier for formatting).
 
-Install the package as a `devDependency`: `@tidal-music/eslint-config-tidal` along with `eslint` (and possible any plugins/configs that should be project specific).
+Install the package as a `devDependency`: `eslint-config-tidal` along with `eslint` (and possible any plugins/configs that should be project specific).
 
 Add a root `eslint.config.js` file, similar to this:
 
 ```
-import tidal from '@tidal-music/eslint-config-tidal';
+import tidal from 'eslint-config-tidal';
 
 /** @type { import("eslint").Linter.FlatConfig[] } */
 export default [
@@ -68,3 +68,6 @@ In this package however rules should (ideally) either be "error" or "off".
 
 In the package you want to lint: (assuming it is in a sibling folder)
 `yarn link ../eslint-config-tidal`
+
+Updating dependencies:
+`npx npm-check-updates --interactive --format group`

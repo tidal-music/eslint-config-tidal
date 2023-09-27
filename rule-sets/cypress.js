@@ -2,7 +2,7 @@
 import cypress from 'eslint-plugin-cypress';
 
 /** @type { import("eslint").Linter.FlatConfig } */
-export default {
+export const cypressRuleSet = {
   files: ['**/cypress/**/*'],
   languageOptions: {
     globals: cypress.environments.globals.globals,
