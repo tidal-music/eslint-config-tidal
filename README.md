@@ -39,7 +39,7 @@ For running from a shell you can add an entry in `package.json`s `scripts` like 
 ```
 (which will also cache results, so re-runs are faster)
 
-This depends on your `package.json` including `"type": "module"`. If that is not possible, you can work around that by renaming your `eslint.config.js` to: `eslint.config.mjs` and launching it like this instead: `ESLINT_USE_FLAT_CONFIG=true eslint . --config eslint.config.mjs`.
+This depends on your `package.json` including `"type": "module"`. If that is not possible, you can work around that by renaming your `eslint.config.js` to: `eslint.config.mjs` and launching it like this instead: `ESLINT_USE_FLAT_CONFIG=true eslint . --config eslint.config.mjs`. This means you will need to update any scripts that use `eslint` to be called this way though, like `lint-staged` and IDE integration (currently not possible for Webstorm: https://youtrack.jetbrains.com/issue/WEB-61117).
 
 ### VSCode setup
 
@@ -56,6 +56,13 @@ And then ensure you have this in your workspace or user settings:
   "eslint.experimental.useFlatConfig": true
 ```
 (This will auto-fix and auto format the files on save.)
+
+PS: If you needed the workaround for not using `"type": "module"` above, you will also need:
+```
+"eslint.options": {
+    "overrideConfigFile": "eslint.config.mjs"
+  }
+```
 
 ## Philosophy
 
