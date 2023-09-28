@@ -48,15 +48,6 @@ export const baseRuleSet = {
     '@typescript-eslint/array-type': ['error', { default: 'generic' }],
     '@typescript-eslint/await-thenable': 'error',
     '@typescript-eslint/ban-ts-comment': 'error',
-    '@typescript-eslint/ban-types': [
-      'warn',
-      {
-        /* Disable this for now, we need null more places than we first thought
-          types: {
-            null: "Use 'undefined' instead of 'null', or better yet '?' optional syntax",
-          }, */
-      },
-    ],
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/naming-convention': [
@@ -110,17 +101,11 @@ export const baseRuleSet = {
     'import/namespace': 'off',
     'import/newline-after-import': 'error',
     'import/no-absolute-path': 'error',
-    // "import/no-commonjs": "error", // Should add? (used in tests? specify as Node?)
     'import/no-amd': 'error',
-    //FIXME heap overflow this line 'import/no-cycle': ['error', { maxDepth: 3 }],
     'import/no-default-export': 'error',
-    //FIXME heap overflow this line 'import/no-deprecated': 'error',
     'import/no-duplicates': 'error',
-    //FIXME heap overflow this line 'import/no-dynamic-require': 'error',
     'import/no-extraneous-dependencies': 'off', // Off for now. Should ignore root deps?
     'import/no-named-as-default': 'off',
-    //FIXME this line causes the stack to overflow?
-    //'import/no-deprecated': 'warn',
     'import/no-named-as-default-member': 'off',
     'import/no-restricted-paths': 'error',
     'import/no-self-import': 'error',
@@ -226,7 +211,6 @@ export const baseRuleSet = {
         trailingComma: 'all',
       },
     ],
-    // Broken completely here: `tv/src/components/artistHeader/artistHeader.js:20`:
     'react/boolean-prop-naming': 'off',
     'react/default-props-match-prop-types': 'off',
     'react/forbid-component-props': 'off',
@@ -243,15 +227,11 @@ export const baseRuleSet = {
     'react/no-unsafe': 'error',
     'react/no-unused-prop-types': 'error',
     'react/no-unused-state': 'error',
-    // fails if using object level read only: https://github.com/yannickcr/eslint-plugin-react/issues/2472
-    'react/prefer-read-only-props': 'off',
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
-    'react/state-in-constructor': 'warn', // TODO: make error again and fix all
     'react/static-property-placement': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'react-hooks/rules-of-hooks': 'error',
-    'tidal-extras/no-get-artist': 'off',
     'valid-jsdoc': 'off',
   },
   settings: {
