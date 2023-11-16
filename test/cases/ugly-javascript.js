@@ -7,8 +7,9 @@ var something = {
     return 'hello' + world
   },
   world(hai = 2) {
-    /* istanbul ignore next */
+    /* c8 ignore start */
     return hai;
+    /* c8 ignore stop */
   }
 };
 
