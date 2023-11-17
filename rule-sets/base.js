@@ -207,6 +207,7 @@ export const baseRuleSet = {
       'error',
       {
         arrowParens: 'avoid',
+        endOfLine: 'auto',
         singleQuote: true,
         trailingComma: 'all',
       },
