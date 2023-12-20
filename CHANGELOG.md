@@ -1,3 +1,6 @@
+## 3.2.0
+* Update dependencies
+
 ## 3.1.0
 * Switch code coverage ignore rule from Istanbul to V8 syntax (as we have switched)
 * Fix running (Prettier) on Windows, as line-endings may be different (caused by git)
