@@ -76,5 +76,6 @@ In this package however rules should (ideally) either be "error" or "off".
 In the package you want to lint: (assuming it is in a sibling folder)
 `yarn link ../eslint-config-tidal`
 
-Updating dependencies:
+### Updating dependencies:
+Normally handled by Renovate, but if you want to do it manually:
 `npx npm-check-updates --interactive --format group`
