@@ -55,10 +55,10 @@
     "node": ">=18"
   },
   "devDependencies": {
-    "@types/eslint": "8.56.3",
+    "@types/eslint": "8.56.5",
     "@types/eslint__js": "8.42.3",
     "@types/eslint-config-prettier": "6.11.3",
-    "ava": "6.1.1"
+    "ava": "6.1.2"
   },
   "dependencies": {
     "@eslint/eslintrc": "3.0.2",
