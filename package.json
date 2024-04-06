@@ -62,7 +62,7 @@
   },
   "dependencies": {
     "@eslint/eslintrc": "3.0.2",
-    "@eslint/js": "8.57.0",
+    "@eslint/js": "9.0.0",
     "@jambit/eslint-plugin-typed-redux-saga": "0.4.0",
     "@typescript-eslint/eslint-plugin": "7.5.0",
     "@typescript-eslint/parser": "7.5.0",
