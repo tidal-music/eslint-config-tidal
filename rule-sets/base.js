@@ -31,7 +31,7 @@ export const baseRuleSet = {
     '@jambit/typed-redux-saga': typedReduxSagaPlugin,
     // @ts-expect-error TS plugin does not quite match expected type
     '@typescript-eslint': tsPlugin,
-    import: fixupPluginRules(importPlugin), // legacyPlugin('eslint-plugin-import', 'import'),
+    import: fixupPluginRules(importPlugin),
     'internal-rules': internalRules,
     'jsx-a11y': jsxA11yPlugin,
     'no-only-tests': noOnlyTestsPlugin,
