@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { fixupPluginRules } from '@eslint/compat';
 import typedReduxSagaPlugin from '@jambit/eslint-plugin-typed-redux-saga';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
@@ -30,7 +31,7 @@ export const baseRuleSet = {
     '@jambit/typed-redux-saga': typedReduxSagaPlugin,
     // @ts-expect-error TS plugin does not quite match expected type
     '@typescript-eslint': tsPlugin,
-    import: importPlugin,
+    import: fixupPluginRules(importPlugin), // legacyPlugin('eslint-plugin-import', 'import'),
     'internal-rules': internalRules,
     'jsx-a11y': jsxA11yPlugin,
     'no-only-tests': noOnlyTestsPlugin,
