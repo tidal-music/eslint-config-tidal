@@ -17,7 +17,7 @@ Add a root `eslint.config.js` file, similar to this:
 ```
 import tidal from 'eslint-config-tidal';
 
-/** @type { import("eslint").Linter.FlatConfig[] } */
+/** @type { import("eslint").Linter.Config[] } */
 export default [
   ...tidal,
   {

@@ -13,7 +13,7 @@ import globals from 'globals';
 
 import { internalRules } from '../internal-rules/index.js';
 
-/** @type { import("eslint").Linter.FlatConfig } */
+/** @type { import("eslint").Linter.Config } */
 export const baseRuleSet = {
   languageOptions: {
     globals: {

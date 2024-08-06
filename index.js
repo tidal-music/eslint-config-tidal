@@ -21,7 +21,7 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-/** @type { import("eslint").Linter.FlatConfig[] } */
+/** @type { import("eslint").Linter.Config[] } */
 // eslint-disable-next-line import/no-default-export
 export default [
   js.configs.recommended,

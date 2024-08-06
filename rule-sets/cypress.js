@@ -1,7 +1,7 @@
 // Cypress
 import cypress from 'eslint-plugin-cypress';
 
-/** @type { import("eslint").Linter.FlatConfig } */
+/** @type { import("eslint").Linter.Config } */
 export const cypressRuleSet = {
   files: ['**/cypress/**/*'],
   languageOptions: {

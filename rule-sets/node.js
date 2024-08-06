@@ -1,7 +1,7 @@
 // For Node.js scripts
 import globals from 'globals';
 
-/** @type { import("eslint").Linter.FlatConfig } */
+/** @type { import("eslint").Linter.Config } */
 export const nodeRuleSet = {
   files: ['**/scripts/*'],
   languageOptions: {

@@ -1,8 +1,5 @@
 import test from 'ava';
-import pkg from 'eslint/use-at-your-own-risk';
-
-// @ts-expect-error as this is not to be the final API entrypoint
-const { FlatESLint } = pkg;
+import { ESLint } from 'eslint';
 
 const getUniqueValues = (
   /** @type {Iterable<any> | null | undefined} */ arr,
@@ -12,7 +9,7 @@ const getUniqueValues = (
  * @param {string} filepath
  */
 async function runEslint(filepath) {
-  const linter = new FlatESLint({
+  const linter = new ESLint({
     ignore: false, // as (failing) test cases are normally ignored..
   });
   const results = await linter.lintFiles([filepath]);
