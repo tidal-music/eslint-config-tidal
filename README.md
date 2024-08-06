@@ -53,7 +53,7 @@ And then ensure you have this in your workspace or user settings:
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.experimental.useFlatConfig": true
+  "eslint.useFlatConfig": true
 ```
 (This will auto-fix and auto format the files on save.)
 
