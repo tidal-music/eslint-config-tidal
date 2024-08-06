@@ -4,7 +4,8 @@ import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import perfectionistNatural from 'eslint-plugin-perfectionist/configs/recommended-natural';
+import xoBrowser from 'eslint-config-xo/browser';
+import perfectionist from 'eslint-plugin-perfectionist';
 
 import { baseRuleSet } from './rule-sets/base.js';
 import { cypressRuleSet } from './rule-sets/cypress.js';
@@ -25,10 +26,11 @@ const compat = new FlatCompat({
 // eslint-disable-next-line import/no-default-export
 export default [
   js.configs.recommended,
-  compat.extends('eslint-config-xo/browser')[0],
+  ...xoBrowser,
   compat.extends('eslint-config-xo-react')[0],
   eslintConfigPrettier,
-  perfectionistNatural,
+  // @ts-expect-error types are missing
+  perfectionist.configs['recommended-natural'],
   // Base Tidal rule set:
   baseRuleSet,
   // Following are some file type specific overrides:
