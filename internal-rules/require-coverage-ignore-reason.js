@@ -9,11 +9,11 @@
  * @type {import("eslint").Rule.RuleModule}
  */
 export const requireCoverageIgnoreReason = {
-  create: function (context) {
+  create(context) {
     const coverageRegExp = /^\s*c8\s+ignore\s+(next|start)\s+/;
     return {
       Program() {
-        const sourceCode = context.sourceCode;
+        const { sourceCode } = context;
 
         for (const node of sourceCode.getAllComments()) {
           const comment = node.value;
@@ -23,6 +23,7 @@ export const requireCoverageIgnoreReason = {
             if (reason.length === 0) {
               context.report({
                 message: 'Add a reason why code coverage should be ignored',
+                // @ts-expect-error - try to pass node here anyway
                 node,
               });
             }

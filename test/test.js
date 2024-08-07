@@ -1,8 +1,5 @@
 import test from 'ava';
-import pkg from 'eslint/use-at-your-own-risk';
-
-// @ts-expect-error as this is not to be the final API entrypoint
-const { FlatESLint } = pkg;
+import { ESLint } from 'eslint';
 
 const getUniqueValues = (
   /** @type {Iterable<any> | null | undefined} */ arr,
@@ -12,7 +9,7 @@ const getUniqueValues = (
  * @param {string} filepath
  */
 async function runEslint(filepath) {
-  const linter = new FlatESLint({
+  const linter = new ESLint({
     ignore: false, // as (failing) test cases are normally ignored..
   });
   const results = await linter.lintFiles([filepath]);
@@ -30,10 +27,12 @@ test('Fails on broken files', async t => {
     '@typescript-eslint/no-unused-vars',
     'internal-rules/require-coverage-ignore-reason',
     'import/no-default-export',
+    'no-var',
+    'object-shorthand',
   ];
 
-  const expectedErrorsFound = errorsAsRuleIds.filter(
-    error => expectedErrors.indexOf(error) !== -1,
+  const expectedErrorsFound = errorsAsRuleIds.filter(error =>
+    expectedErrors.includes(error),
   );
 
   // All expected error types are found:
@@ -41,12 +40,12 @@ test('Fails on broken files', async t => {
 
   // All found errors are of expected types:
   const unexpectedErrorsFound = errorsAsRuleIds.filter(
-    error => expectedErrors.indexOf(error) === -1,
+    error => !expectedErrors.includes(error),
   );
   t.is(unexpectedErrorsFound.length, 0);
 
   // Total number of seen errors:
-  t.is(errors.length, 7);
+  t.is(errors.length, 10);
 });
 
 test('Success on nice files', async t => {
@@ -75,8 +74,8 @@ test('Fails on unsorted file', async t => {
     'perfectionist/sort-jsx-props',
   ];
 
-  const expectedErrorsFound = errorsAsRuleIds.filter(
-    error => expectedErrors.indexOf(error) !== -1,
+  const expectedErrorsFound = errorsAsRuleIds.filter(error =>
+    expectedErrors.includes(error),
   );
 
   // All expected error types are found:
@@ -84,7 +83,7 @@ test('Fails on unsorted file', async t => {
 
   // All found errors are of expected types:
   const unexpectedErrorsFound = errorsAsRuleIds.filter(
-    error => expectedErrors.indexOf(error) === -1,
+    error => !expectedErrors.includes(error),
   );
   t.is(unexpectedErrorsFound.length, 0);
 

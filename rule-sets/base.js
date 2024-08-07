@@ -7,19 +7,17 @@ import confusingBrowserGlobals from 'confusing-browser-globals';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import noOnlyTestsPlugin from 'eslint-plugin-no-only-tests';
-import perfectionist from 'eslint-plugin-perfectionist';
 import prettier from 'eslint-plugin-prettier';
 import globals from 'globals';
 
 import { internalRules } from '../internal-rules/index.js';
 
-/** @type { import("eslint").Linter.FlatConfig } */
+/** @type { import("eslint").Linter.Config } */
 export const baseRuleSet = {
   languageOptions: {
     globals: {
       ...globals.browser,
     },
-    // @ts-expect-error TS parser does not quite match expected type
     parser: tsParser,
     parserOptions: {
       ecmaVersion: 'latest',
@@ -35,7 +33,6 @@ export const baseRuleSet = {
     'internal-rules': internalRules,
     'jsx-a11y': jsxA11yPlugin,
     'no-only-tests': noOnlyTestsPlugin,
-    perfectionist,
     prettier,
   },
   rules: {
@@ -46,6 +43,14 @@ export const baseRuleSet = {
     ...jsxA11yPlugin.configs.recommended.rules,
     '@jambit/typed-redux-saga/delegate-effects': 'error',
     '@jambit/typed-redux-saga/use-typed-effects': ['error', 'macro'],
+    '@stylistic/comma-dangle': 'off',
+    '@stylistic/function-paren-newline': 'off',
+    '@stylistic/indent': 'off',
+    '@stylistic/jsx-quotes': 'off',
+    '@stylistic/object-curly-spacing': 'off',
+    '@stylistic/padding-line-between-statements': 'off',
+    '@stylistic/semi': 'off',
+    '@stylistic/space-before-blocks': 'off',
     '@typescript-eslint/array-type': ['error', { default: 'generic' }],
     '@typescript-eslint/await-thenable': 'error',
     '@typescript-eslint/ban-ts-comment': 'error',

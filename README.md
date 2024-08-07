@@ -17,7 +17,7 @@ Add a root `eslint.config.js` file, similar to this:
 ```
 import tidal from 'eslint-config-tidal';
 
-/** @type { import("eslint").Linter.FlatConfig[] } */
+/** @type { import("eslint").Linter.Config[] } */
 export default [
   ...tidal,
   {
@@ -53,7 +53,7 @@ And then ensure you have this in your workspace or user settings:
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.experimental.useFlatConfig": true
+  "eslint.useFlatConfig": true
 ```
 (This will auto-fix and auto format the files on save.)
 

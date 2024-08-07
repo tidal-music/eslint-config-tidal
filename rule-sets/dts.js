@@ -1,6 +1,6 @@
 // Typescript type definitions
 
-/** @type { import("eslint").Linter.FlatConfig } */
+/** @type { import("eslint").Linter.Config } */
 export const dtsRuleSet = {
   files: ['**/*.d.ts'],
   rules: {
