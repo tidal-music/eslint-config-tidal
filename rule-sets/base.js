@@ -7,7 +7,10 @@ import confusingBrowserGlobals from 'confusing-browser-globals';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import noOnlyTestsPlugin from 'eslint-plugin-no-only-tests';
+import perfectionist from 'eslint-plugin-perfectionist';
 import prettier from 'eslint-plugin-prettier';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 
 import { internalRules } from '../internal-rules/index.js';
@@ -21,7 +24,7 @@ export const baseRuleSet = {
     parser: tsParser,
     parserOptions: {
       ecmaVersion: 'latest',
-      project: true,
+      projectService: true,
       sourceType: 'module',
     },
   },
@@ -33,7 +36,10 @@ export const baseRuleSet = {
     'internal-rules': internalRules,
     'jsx-a11y': jsxA11yPlugin,
     'no-only-tests': noOnlyTestsPlugin,
+    perfectionist,
     prettier,
+    react,
+    'react-hooks': reactHooks,
   },
   rules: {
     ...tsPlugin.configs['recommended-type-checked'].rules,
@@ -41,16 +47,9 @@ export const baseRuleSet = {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     ...importPlugin.configs.typescript.rules,
     ...jsxA11yPlugin.configs.recommended.rules,
+    ...perfectionist.configs['recommended-natural'].rules,
     '@jambit/typed-redux-saga/delegate-effects': 'error',
     '@jambit/typed-redux-saga/use-typed-effects': ['error', 'macro'],
-    '@stylistic/comma-dangle': 'off',
-    '@stylistic/function-paren-newline': 'off',
-    '@stylistic/indent': 'off',
-    '@stylistic/jsx-quotes': 'off',
-    '@stylistic/object-curly-spacing': 'off',
-    '@stylistic/padding-line-between-statements': 'off',
-    '@stylistic/semi': 'off',
-    '@stylistic/space-before-blocks': 'off',
     '@typescript-eslint/array-type': ['error', { default: 'generic' }],
     '@typescript-eslint/await-thenable': 'error',
     '@typescript-eslint/ban-ts-comment': 'error',
@@ -206,9 +205,32 @@ export const baseRuleSet = {
     'no-shadow': 'off',
     'no-undef': 'off',
     'no-unused-vars': 'off',
+    'no-var': 'error',
     'no-warning-comments': 'off',
+    'object-shorthand': 'error',
     // TODO: consider switching from 'import/order' to this one?
     'perfectionist/sort-imports': 'off',
+    'perfectionist/sort-intersection-types': [
+      'error',
+      {
+        groups: [
+          [
+            'conditional',
+            'function',
+            'import',
+            'intersection',
+            'keyword',
+            'literal',
+            'named',
+            'operator',
+            'tuple',
+            'union',
+          ],
+          ['object'],
+          ['nullish'],
+        ],
+      },
+    ],
     'prettier/prettier': [
       'error',
       {
@@ -244,6 +266,10 @@ export const baseRuleSet = {
   settings: {
     'import/resolver': {
       typescript: {},
+    },
+    perfectionist: {
+      ignoreCase: false,
+      type: 'natural',
     },
     react: {
       version: '18.2.0',

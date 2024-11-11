@@ -32,6 +32,11 @@ export function ProfileImageRepresentation({
   className,
   desiredWidth,
   resourceId,
+}: {
+  width: number;
+  className: string;
+  desiredWidth: number;
+  resourceId: string;
 }) {
   const style = {
     height: (() => {})(),
