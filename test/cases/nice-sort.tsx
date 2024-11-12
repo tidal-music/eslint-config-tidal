@@ -36,6 +36,11 @@ export function ProfileImageRepresentation({
   desiredWidth,
   resourceId,
   width,
+}: {
+  className: string;
+  desiredWidth: number;
+  resourceId: string;
+  width: number;
 }) {
   const style = {
     height: (() => {})(),
@@ -53,3 +58,20 @@ export function ProfileImageRepresentation({
     />
   );
 }
+
+export type SortDirection = 'ASC' | 'DESC';
+
+export type SortOrderAndDirection = [
+  OnboardingStepName | null | undefined,
+  SortDirection | null | undefined,
+];
+
+export type Playlist = ClientApplication &
+  SortOrderAndDirection & {
+    readonly contentType: 'folderPlaylist' | 'playlist';
+    readonly parent?: {
+      readonly id: string;
+      readonly name: string;
+    };
+    readonly trn?: string;
+  };

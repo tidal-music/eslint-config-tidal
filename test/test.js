@@ -88,7 +88,7 @@ test('Fails on unsorted file', async t => {
   t.is(unexpectedErrorsFound.length, 0);
 
   // Total number of seen errors:
-  t.is(errors.length, 10);
+  t.is(errors.length, 11);
 });
 
 test('Success on sorted file', async t => {
