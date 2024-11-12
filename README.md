@@ -79,3 +79,6 @@ In the package you want to lint: (assuming it is in a sibling folder)
 ### Updating dependencies:
 Normally handled by Renovate, but if you want to do it manually:
 `npx npm-check-updates --interactive --format group`
+
+### Publishing
+Done locally for now (using `npm publish` and manual git tagging).
