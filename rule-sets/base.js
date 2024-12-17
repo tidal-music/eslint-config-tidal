@@ -241,6 +241,8 @@ export const baseRuleSet = {
         trailingComma: 'all',
       },
     ],
+    'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/rules-of-hooks': 'error',
     'react/boolean-prop-naming': 'off',
     'react/default-props-match-prop-types': 'off',
     'react/forbid-component-props': 'off',
@@ -260,8 +262,6 @@ export const baseRuleSet = {
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
     'react/static-property-placement': 'error',
-    'react-hooks/exhaustive-deps': 'error',
-    'react-hooks/rules-of-hooks': 'error',
     'valid-jsdoc': 'off',
   },
   settings: {
