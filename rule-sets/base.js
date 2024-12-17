@@ -232,6 +232,28 @@ export const baseRuleSet = {
         ],
       },
     ],
+    'perfectionist/sort-modules': 'off',
+    'perfectionist/sort-union-types': [
+      'error',
+      {
+        groups: [
+          [
+            'conditional',
+            'function',
+            'import',
+            'intersection',
+            'keyword',
+            'literal',
+            'named',
+            'operator',
+            'tuple',
+            'union',
+          ],
+          ['object'],
+          ['nullish'],
+        ],
+      },
+    ],
     'prettier/prettier': [
       'error',
       {
