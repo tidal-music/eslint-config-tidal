@@ -17,6 +17,8 @@ jobs:
     - name: npm install and test
       run: |
         npm ci --force
+        npm run type-check
+        npm run lint -- --quiet
         npm test
       env:
         CI: true

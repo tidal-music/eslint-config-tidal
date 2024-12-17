@@ -5,6 +5,7 @@ import storybook from 'eslint-plugin-storybook';
 export const storybookRuleSet = {
   files: ['.storybook/*', '**/*.story.tsx'],
   plugins: {
+    // @ts-expect-error plugin does not quite match expected type?
     storybook,
   },
   rules: {

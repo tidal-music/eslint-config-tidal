@@ -38,6 +38,7 @@ export const baseRuleSet = {
     'no-only-tests': noOnlyTestsPlugin,
     perfectionist,
     prettier,
+    // @ts-expect-error plugin does not quite match expected type?
     react,
     'react-hooks': reactHooks,
   },
