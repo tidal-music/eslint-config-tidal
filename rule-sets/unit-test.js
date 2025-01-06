@@ -6,9 +6,8 @@ export const unitTestRuleSet = {
   files: ['**/*.test.ts', '**/*.test.tsx', '__mocks__/**/*.ts'],
   ignores: ['**/*.auto.test.tsx'],
   languageOptions: {
-    globals: vitest.environments?.env?.globals,
+    globals: vitest.environments.env.globals,
   },
-  // @ts-expect-error VitestPlugin does not quite match expected ESLint.Plugin
   plugins: { vitest },
   rules: {
     ...vitest.configs.recommended.rules,
