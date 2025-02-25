@@ -14,11 +14,11 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install and test
+    - name: pnpm install and test
       run: |
-        npm ci --force
-        npm run type-check
-        npm run lint -- --quiet
-        npm test
+        pnpm install
+        pnpm type-check
+        pnpm lint --quiet
+        pnpm test
       env:
         CI: true
