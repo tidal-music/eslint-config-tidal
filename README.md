@@ -74,11 +74,12 @@ In this package however rules should (ideally) either be "error" or "off".
 ## Development:
 
 In the package you want to lint: (assuming it is in a sibling folder)
-`yarn link ../eslint-config-tidal`
+`pnpm|yarn|npm link ../eslint-config-tidal`
 
 ### Updating dependencies:
 Normally handled by Renovate, but if you want to do it manually:
-`npx npm-check-updates --interactive --format group`
+`pnpm update --interactive --latest`
+
 
 ### Publishing
-Done locally for now (using `npm publish` and manual git tagging).
+Done locally for now (using `pnpm publish` and manual git tagging).
