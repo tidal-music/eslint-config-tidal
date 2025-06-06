@@ -23,7 +23,6 @@ export const requireCoverageIgnoreReason = {
             if (reason.length === 0) {
               context.report({
                 message: 'Add a reason why code coverage should be ignored',
-                // @ts-expect-error - try to pass node here anyway
                 node,
               });
             }
