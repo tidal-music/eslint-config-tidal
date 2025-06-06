@@ -5,7 +5,7 @@ import cypress from 'eslint-plugin-cypress';
 export const cypressRuleSet = {
   files: ['**/cypress/**/*'],
   languageOptions: {
-    globals: cypress.environments.globals.globals,
+    globals: cypress.configs.recommended.globals,
   },
   plugins: {
     cypress,
