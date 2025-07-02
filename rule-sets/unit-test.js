@@ -8,6 +8,7 @@ export const unitTestRuleSet = {
   languageOptions: {
     globals: vitest.environments.env.globals,
   },
+  // @ts-expect-error vitest plugin does not quite match expected type
   plugins: { vitest },
   rules: {
     ...vitest.configs.recommended.rules,

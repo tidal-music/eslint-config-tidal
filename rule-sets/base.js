@@ -44,7 +44,7 @@ export const baseRuleSet = {
   rules: {
     ...tsPlugin.configs['recommended-type-checked'].rules,
     ...tsPlugin.configs['stylistic-type-checked'].rules,
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+
     ...importPlugin.configs.typescript.rules,
     ...jsxA11yPlugin.configs.recommended.rules,
     ...perfectionist.configs['recommended-natural'].rules,
