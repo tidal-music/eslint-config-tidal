@@ -4,9 +4,9 @@ import cypress from 'eslint-plugin-cypress';
 /** @type { import("eslint").Linter.Config } */
 export const cypressRuleSet = {
   files: ['**/cypress/**/*'],
-  languageOptions: {
-    globals: cypress.configs.recommended.globals,
-  },
+  languageOptions: cypress.configs?.recommended?.languageOptions
+    ? { globals: cypress.configs.recommended.languageOptions.globals }
+    : {},
   plugins: {
     cypress,
   },
