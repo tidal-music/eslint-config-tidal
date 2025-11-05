@@ -9,7 +9,6 @@ export const storybookRuleSet = {
     storybook,
   },
   rules: {
-    // @ts-expect-error storybook plugin type does not quite match what it exports?
     ...storybook.configs.recommended.overrides[0].rules,
     'import/no-default-export': 'off',
   },
