@@ -39,6 +39,7 @@ export const baseRuleSet = {
     perfectionist,
     prettier,
     react,
+    // @ts-expect-error react-hooks v7 has type compatibility issues
     'react-hooks': reactHooks,
   },
   rules: {
@@ -46,6 +47,7 @@ export const baseRuleSet = {
     ...tsPlugin.configs['stylistic-type-checked'].rules,
 
     ...importPlugin.configs.typescript.rules,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     ...jsxA11yPlugin.configs.recommended.rules,
     ...perfectionist.configs['recommended-natural'].rules,
     '@jambit/typed-redux-saga/delegate-effects': 'error',
