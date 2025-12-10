@@ -65,9 +65,9 @@
     "@eslint/eslintrc": "3.3.3",
     "@eslint/js": "9.39.1",
     "@jambit/eslint-plugin-typed-redux-saga": "0.4.0",
-    "@typescript-eslint/eslint-plugin": "8.48.0",
-    "@typescript-eslint/parser": "8.48.0",
-    "@vitest/eslint-plugin": "1.5.1",
+    "@typescript-eslint/eslint-plugin": "8.49.0",
+    "@typescript-eslint/parser": "8.49.0",
+    "@vitest/eslint-plugin": "1.5.2",
     "confusing-browser-globals": "1.0.11",
     "eslint": "9.39.1",
     "eslint-config-prettier": "10.1.8",
@@ -80,15 +80,15 @@
     "eslint-plugin-prettier": "5.5.4",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.0.1",
-    "eslint-plugin-storybook": "10.1.2",
+    "eslint-plugin-storybook": "10.1.6",
     "globals": "16.5.0",
-    "prettier": "3.7.3",
+    "prettier": "3.7.4",
     "redux-saga": "1.4.2",
     "typed-redux-saga": "1.4.0",
     "typescript": "5.9.3",
-    "vitest": "4.0.14"
+    "vitest": "4.0.15"
   },
-  "packageManager": "pnpm@10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a",
+  "packageManager": "pnpm@10.25.0+sha512.5e82639027af37cf832061bcc6d639c219634488e0f2baebe785028a793de7b525ffcd3f7ff574f5e9860654e098fe852ba8ac5dd5cefe1767d23a020a92f501",
   "pnpm": {
     "ignoredBuiltDependencies": [
       "esbuild"
