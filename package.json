@@ -81,7 +81,7 @@
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.0.1",
     "eslint-plugin-storybook": "10.1.11",
-    "globals": "16.5.0",
+    "globals": "17.0.0",
     "prettier": "3.7.4",
     "redux-saga": "1.4.2",
     "typed-redux-saga": "1.4.0",
