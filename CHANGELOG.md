@@ -1,3 +1,6 @@
+## 5.0.0
+* Big dependency update, ESLint 10, +++
+
 ## 4.0.0
 * Big dependency update, ESLint 9, typescript-eslint 8, +++
 * Drop XO as we do not want the Stylistic rules (we use Prettier for that)
