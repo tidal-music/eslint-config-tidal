@@ -15,6 +15,11 @@ import globals from 'globals';
 
 import { internalRules } from '../internal-rules/index.js';
 
+// Printable ASCII mostly sorted by code point — matches the old sort-keys-fix behavior
+// (uppercase before lowercase, e.g. "OneTrust" < "console")
+const alphabet =
+  ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+
 /** @type { import("eslint").Linter.Config } */
 export const baseRuleSet = {
   languageOptions: {
@@ -49,7 +54,7 @@ export const baseRuleSet = {
     ...importPlugin.configs.typescript.rules,
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     ...jsxA11yPlugin.configs.recommended.rules,
-    ...perfectionist.configs['recommended-natural'].rules,
+    ...perfectionist.configs['recommended-custom'].rules,
     '@jambit/typed-redux-saga/delegate-effects': 'error',
     '@jambit/typed-redux-saga/use-typed-effects': ['error', 'macro'],
     '@typescript-eslint/array-type': ['error', { default: 'generic' }],
@@ -210,8 +215,23 @@ export const baseRuleSet = {
     'no-var': 'error',
     'no-warning-comments': 'off',
     'object-shorthand': 'error',
+    'perfectionist/sort-classes': [
+      'error',
+      {
+        groups: [
+          'static-block',
+          ['static-property', 'static-accessor-property'],
+          ['property', 'accessor-property', 'function-property'],
+          'index-signature',
+          'constructor',
+          ['static-method', 'static-get-method', 'static-set-method'],
+          ['get-method', 'set-method', 'method'],
+        ],
+      },
+    ],
     // TODO: consider switching from 'import/order' to this one?
     'perfectionist/sort-imports': 'off',
+    'perfectionist/sort-interfaces': ['error', { ignoreCase: false }],
     'perfectionist/sort-intersection-types': [
       'error',
       {
@@ -234,6 +254,9 @@ export const baseRuleSet = {
       },
     ],
     'perfectionist/sort-modules': 'off',
+    'perfectionist/sort-named-imports': 'off',
+    'perfectionist/sort-objects': ['error', { ignoreCase: false }],
+    'perfectionist/sort-switch-case': ['error', { ignoreCase: false }],
     'perfectionist/sort-union-types': [
       'error',
       {
@@ -292,8 +315,9 @@ export const baseRuleSet = {
       typescript: {},
     },
     perfectionist: {
+      alphabet,
       ignoreCase: false,
-      type: 'natural',
+      type: 'custom',
     },
     react: {
       version: '18.2.0',

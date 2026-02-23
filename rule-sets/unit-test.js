@@ -11,6 +11,7 @@ export const unitTestRuleSet = {
   plugins: { vitest },
   rules: {
     ...vitest.configs.recommended.rules,
+    'vitest/no-conditional-expect': 'warn',
     'vitest/prefer-to-be': 'off',
     'vitest/prefer-todo': 'error',
   },
