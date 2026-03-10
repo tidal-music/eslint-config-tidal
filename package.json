@@ -95,7 +95,7 @@
     ],
     "overrides": {
       "minimatch@<4": "3.1.5",
-      "minimatch@>=9 <10": "9.0.9",
+      "minimatch@>=9 <10": "10.2.4",
       "minimatch@>=10": "10.2.4",
       "rollup@>=4": "4.59.0",
       "storybook@>=9": "9.1.20"
