@@ -58,7 +58,7 @@
   "devDependencies": {
     "@types/eslint": "9.6.1",
     "@types/eslint-config-prettier": "6.11.3",
-    "ava": "7.0.0"
+    "ava": "8.0.0"
   },
   "dependencies": {
     "@eslint/compat": "2.0.3",
