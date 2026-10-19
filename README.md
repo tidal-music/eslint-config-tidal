@@ -1,7 +1,6 @@
 # eslint-config-tidal
 
-[![NPM downloads](https://img.shields.io/npm/dm/eslint-config-tidal.svg 'NPM downloads')](https://www.npmjs.com/package/eslint-config-tidal)
-[![NPM version](https://img.shields.io/npm/v/eslint-config-tidal.svg 'NPM version')](https://www.npmjs.com/package/eslint-config-tidal)
+DEPRECATED: We've moved on to use `oxlint` / `oxfmt` so this config is no longer updated.
 
 
 > ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for the TIDAL web frontend code style using the new [flat config format](https://eslint.org/docs/latest/use/configure/configuration-files-new).
